@@ -66,11 +66,16 @@
   .hero-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 4px; }
   .hero-stat-value { font-size: 15px; font-weight: 600; color: var(--black); }
 
-  /* HERO IMAGE */
-  .hero-image {
-    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 16px;
-    height: 500px; display: flex; align-items: center; justify-content: center;
-    max-width: 1400px; margin: 0 auto 80px; padding: 0 60px;
+  /* HERO COVER */
+  .hero-cover {
+    margin-top: 56px;
+    max-width: 900px;
+  }
+  .hero-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
   }
 
   /* LAYOUT */
@@ -519,33 +524,10 @@
   .mermaid-wrap .mermaid { display: flex; justify-content: center; }
   .mermaid-diagram-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); text-align: center; margin-bottom: 20px; display: block; }
 
-  /* USER BENTO */
-  .user-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 32px 0; }
-  .ub-card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; min-height: 360px; }
-  .ub-dark { background: #091929; }
-  .ub-mid { background: var(--bg-alt); border: 1px solid var(--border); }
-  .ub-light { background: var(--accent-light); border: 1px solid #AED6F1; }
-  .ub-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px; flex-shrink: 0; }
-  .ub-dark .ub-avatar { background: rgba(255,255,255,0.08); }
-  .ub-mid .ub-avatar { background: var(--border); }
-  .ub-light .ub-avatar { background: #D6EAF8; }
-  .ub-name { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2px; }
-  .ub-dark .ub-name { color: white; }
-  .ub-mid .ub-name, .ub-light .ub-name { color: var(--black); }
-  .ub-role { font-size: 11px; font-weight: 600; margin-bottom: 18px; }
-  .ub-dark .ub-role { color: rgba(255,255,255,0.38); }
-  .ub-mid .ub-role, .ub-light .ub-role { color: var(--tertiary); }
-  .ub-quote { font-size: 13px; line-height: 1.65; padding: 14px 16px; border-radius: 10px; flex: 1; margin-bottom: 18px; font-style: italic; }
-  .ub-dark .ub-quote { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); }
-  .ub-mid .ub-quote { background: white; color: var(--secondary); border: 1px solid var(--border); }
-  .ub-light .ub-quote { background: white; color: var(--secondary); border: 1px solid #AED6F1; }
-  .ub-exit-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
-  .ub-dark .ub-exit-label { color: rgba(255,255,255,0.28); }
-  .ub-mid .ub-exit-label, .ub-light .ub-exit-label { color: var(--tertiary); }
-  .ub-exit { font-size: 13px; font-weight: 600; line-height: 1.5; }
-  .ub-dark .ub-exit { color: rgba(255,255,255,0.62); }
-  .ub-mid .ub-exit { color: var(--black); }
-  .ub-light .ub-exit { color: var(--accent); }
+  /* PERSONA GALLERY */
+  .persona-gallery { display: flex; flex-direction: column; gap: 32px; margin: 40px 0; }
+  .persona-fig { margin: 0; }
+  .persona-fig img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
 
   /* COMPETITOR TABLE */
   .comp-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
@@ -586,7 +568,7 @@
     .hero-stats { gap: 28px; flex-wrap: wrap; }
     .layout { flex-direction: column; padding: 0 20px; }
     .sidebar { display: none; width: auto; }
-    .insight-grid, .persona-grid, .insight-bento, .user-bento { grid-template-columns: 1fr; }
+    .insight-grid, .persona-grid, .insight-bento { grid-template-columns: 1fr; }
     .ds-bento { grid-template-columns: 1fr; }
     .ds-type-hero { min-height: 320px; }
     .ds-type-display { font-size: 42px; }
@@ -652,6 +634,9 @@
   <div class="img-placeholder">
     <div class="img-title">Hero — All Screens Overview</div>
     <div class="img-desc">Home, Report, Track, and Verify flows side by side</div>
+  </div>
+  <div class="hero-cover">
+    <img src="cover.webp" alt="Namma Yatri civic complaint app — Home screen with heatmap and ticket detail view" loading="eager">
   </div>
 </div>
 
@@ -936,31 +921,16 @@ flowchart TD
       <h2>Three types. Same app, different orientations.</h2>
       <p>Three users. All three current-state journeys were mapped across five phases: Discover, Report, Submit, Wait, Resolution. All three end at the same phase: frustrated, abandoned.</p>
 
-      <div class="user-bento">
-        <div class="ub-card ub-dark">
-          <div class="ub-avatar">👩‍💼</div>
-          <div class="ub-name">Ananya Sharma, 27</div>
-          <div class="ub-role">Marketing Executive · Koramangala · High digital literacy</div>
-          <div class="ub-quote">"I'll report it if it takes two minutes. I won't spend twenty on a pothole I pass every day."</div>
-          <div class="ub-exit-label">Her exit</div>
-          <div class="ub-exit">Reports immediately when she spots something. When nothing happens in three days, she doesn't follow up. She moves on.</div>
-        </div>
-        <div class="ub-card ub-mid">
-          <div class="ub-avatar">👨‍💼</div>
-          <div class="ub-name">Ramesh Kumar, 42</div>
-          <div class="ub-role">Small Business Owner · Bengaluru · Moderate literacy</div>
-          <div class="ub-quote">"Submitting is easy. Finding out who's actually going to fix it — that's the hard part."</div>
-          <div class="ub-exit-label">His exit</div>
-          <div class="ub-exit">Believes systems can be held accountable. When the escalation path hits a wall, he leaves — and tells people about it.</div>
-        </div>
-        <div class="ub-card ub-light">
-          <div class="ub-avatar">👩</div>
-          <div class="ub-name">Meena Devi, 35</div>
-          <div class="ub-role">Homemaker · Mysuru · Low-moderate literacy</div>
-          <div class="ub-quote">"Ten people in our area have the same problem. Why do we each have to complain separately?"</div>
-          <div class="ub-exit-label">Her exit</div>
-          <div class="ub-exit">Files on behalf of her neighbourhood. When the app fails one issue, she stops for all of them. Her dropout removes a cluster, not just one user.</div>
-        </div>
+      <div class="persona-gallery">
+        <figure class="persona-fig">
+          <img src="persona-ananya.webp" alt="Ananya Sharma persona card — 27, Product Executive, Bengaluru">
+        </figure>
+        <figure class="persona-fig">
+          <img src="persona-ramesh.webp" alt="Ramesh Kumar persona card — 42, Small Business Owner, Bengaluru">
+        </figure>
+        <figure class="persona-fig">
+          <img src="persona-meena.webp" alt="Meena Devi persona card — 35, Homemaker, Mysuru">
+        </figure>
       </div>
 
     </section>
