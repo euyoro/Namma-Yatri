@@ -339,7 +339,7 @@
         <cite>App Store review, Swachhata-MoHUA</cite>
       </div>
 
-      <p>This is a data architecture problem wearing a UX mask. The system has a <code>status = RESOLVED</code> field. It doesn't have a <code>physical_world_state = ACTUALLY_FIXED</code> field. Those are two different variables. The app can work perfectly while the service-delivery network behind it is completely broken.</p>
+      <p>The problem isn't the interface. It's what the system tracks. The system has a <code>status = RESOLVED</code> field. It doesn't have a <code>physical_world_state = ACTUALLY_FIXED</code> field. Those are two different things. The app can work perfectly while the problem stays unfixed.</p>
 
       <div class="code-block">
         <pre><span class="key">// What the current data model tracks</span>
@@ -366,13 +366,13 @@
         </div>
         <div class="insight-card">
           <div class="insight-num">Problem C</div>
-          <h4>The channel kills intent before submission</h4>
-          <p>Swachhata's App Store rating is 1.9. BBMP Fix My Street users report 10-minute load times. The first friction point isn't the form. It's the app opening.</p>
+          <h4>The app itself is the first barrier</h4>
+          <p>Swachhata's App Store rating is 1.9. BBMP Fix My Street users report 10-minute load times. The friction isn't the form. It's getting the app to open.</p>
         </div>
         <div class="insight-card">
           <div class="insight-num">Problem D</div>
           <h4>Officers are incentivised to close tickets, not fix things</h4>
-          <p>KPIs measure ticket closure speed. Changing the metric changes the behaviour. The design had to change the metric.</p>
+          <p>KPIs measure how fast tickets close, not whether problems get fixed. Any design that doesn't address this will have the same outcome as everything before it.</p>
         </div>
       </div>
     </section>
@@ -383,7 +383,7 @@
     <section class="section" id="existing-apps">
       <span class="section-tag">What's Already Out There</span>
       <h2>Five apps. The same structural gap in all of them.</h2>
-      <p>I tore down every major Indian civic complaint app before touching a wireframe. I went beyond the App Store descriptions and looked at what users reported happened to them.</p>
+      <p>Before touching a wireframe, I looked at every major Indian civic app. Not just the descriptions but what users said actually happened to them.</p>
 
       <table class="comp-table">
         <thead>
@@ -422,7 +422,7 @@
         </tbody>
       </table>
 
-      <p>All five are designed around the lifecycle of a ticket. They need to be designed around the lifecycle of a physical condition. That's the unlock.</p>
+      <p>All five track the ticket. None of them track the problem. That's the gap.</p>
 
       <div class="img-block medium">
         <div class="img-placeholder">
@@ -474,7 +474,7 @@
           <div class="persona-body">
             <div class="persona-name">Ramesh Kumar, 42</div>
             <div class="persona-role">Small Business Owner · Bengaluru · Moderate literacy</div>
-            <div class="persona-goal">"Submitting is easy. Finding out who's actually going to fix it — that's the problem."</div>
+            <div class="persona-goal">"Submitting is easy. Finding out who's going to fix it, that's the hard part."</div>
             <div class="persona-pain"><strong>His problem:</strong> Accountability. He filed three complaints. Nothing happened. He calls manually now because the app gave him no visibility.</div>
           </div>
         </div>
@@ -503,7 +503,7 @@
         <p>How might we make it effortless for citizens to report public infrastructure issues, while giving them the transparency to see those issues through to real, verified resolution?</p>
       </div>
 
-      <p>Two words carried the most weight: effortless for Ananya, and <em>real</em> resolution for Ramesh and Meena. Those became the filter for every screen that followed.</p>
+      <p>Two things mattered most: effortless for Ananya, and <em>real</em> resolution for Ramesh and Meena. Every screen decision ran through that filter.</p>
     </section>
 
     <hr class="divider">
@@ -511,7 +511,7 @@
     <!-- DECISIONS -->
     <section class="section" id="decisions">
       <span class="section-tag">Five Calls I Made</span>
-      <h2>Every design decision I'd defend in a room.</h2>
+      <h2>Here's how I thought through the key calls.</h2>
 
       <div class="decision-card">
         <div class="decision-header">
@@ -520,18 +520,18 @@
         </div>
         <div class="decision-options">
           <div class="decision-option">
-            <div class="decision-option-label chosen">Chosen — dual path</div>
+            <div class="decision-option-label chosen">Chosen: dual path</div>
             <h5>Camera dominant, category available</h5>
             <p>Camera-first at 80% visual weight. Category grid below it. Both paths converge at the same review screen.</p>
           </div>
           <div class="decision-option">
-            <div class="decision-option-label rejected">Rejected — camera only</div>
+            <div class="decision-option-label rejected">Rejected: camera only</div>
             <h5>Single entry point for everyone</h5>
             <p>Cleaner on paper. Forces a new mental model on users already trained by Swachhata's category-first pattern, which has 8.4M downloads.</p>
           </div>
         </div>
         <div class="decision-rationale">
-          <strong>Why:</strong> Camera-first keeps Ananya in the flow. Category stays available for the 8.4M users trained on Swachhata's pattern — forcing relearning in the first three seconds is where drop-off is highest.
+          <strong>Why:</strong> Camera-first keeps Ananya in the flow. Category stays available for the 8.4M users already trained on Swachhata's pattern. Forcing a new mental model in the first three seconds is where drop-off is highest.
         </div>
       </div>
 
@@ -575,7 +575,7 @@
           </div>
         </div>
         <div class="decision-rationale">
-          <strong>Why:</strong> Trust is built by seeing the loop close. Swachhata's reviews say "nobody is listening." Showing resolutions with before/after evidence creates the incentive to report again. The app's best marketing is a fixed pothole.
+          <strong>Why:</strong> Trust is built by seeing the loop close. Swachhata's reviews say "nobody is listening." Showing resolutions with before/after evidence gives people a reason to report again.
         </div>
       </div>
 
@@ -619,7 +619,7 @@
           </div>
         </div>
         <div class="decision-rationale">
-          <strong>Why:</strong> Officers can't close tickets arbitrarily if citizens can reopen them. The metric shifts from ticket-closed to citizen-confirmed — that changes everything downstream.
+          <strong>Why:</strong> Officers can't close tickets arbitrarily if citizens can reopen them. The metric shifts from ticket-closed to citizen-confirmed. That changes the incentive for everyone involved.
         </div>
       </div>
 
@@ -630,11 +630,11 @@
     <!-- FLOWS -->
     <section class="section" id="flows">
       <span class="section-tag">Three Flows</span>
-      <h2>Report. Track. Verify. The full loop, not just the submission.</h2>
-      <p>Most civic apps have one flow: submit and forget. I designed three, because submission is where civic trust begins. Verification is where it's earned.</p>
+      <h2>Report. Track. Verify.</h2>
+      <p>Most apps stop at submission. I designed three flows because the trust problem lives after that.</p>
 
-      <h3>Flow 01 — Reporting an issue</h3>
-      <p>Camera or category opens the flow. GPS, timestamp, and category auto-populate — the user never types their location. A duplicate check surfaces any existing nearby ticket before creating a new one. One review screen, one CTA, done.</p>
+      <h3>Flow 01: Reporting an issue</h3>
+      <p>Camera or category opens the flow. GPS, timestamp, and category auto-populate so the user never has to type their location. A duplicate check surfaces any nearby ticket before creating a new one. One review screen, one CTA, done.</p>
 
       <div class="img-block tall">
         <div class="img-placeholder">
@@ -643,7 +643,7 @@
         </div>
       </div>
 
-      <h3>Flow 02 — Tracking an issue</h3>
+      <h3>Flow 02: Tracking an issue</h3>
       <p>The ticket detail screen is where Ramesh lives. A status timeline shows every update: when it was assigned, which officer, what action was logged. When a ticket goes overdue, two options appear at the bottom: escalate to a higher authority, or contact support directly. No more 15 calls.</p>
 
       <div class="img-block medium">
@@ -653,7 +653,7 @@
         </div>
       </div>
 
-      <h3>Flow 03 — Verifying resolution</h3>
+      <h3>Flow 03: Verifying resolution</h3>
       <p>This is the flow no existing app has. When an officer marks a ticket resolved, the citizen gets a notification with before/after evidence. They choose: Approve, Partially Resolved, or Still Unresolved. Unresolved auto-reopens and notifies the authority.</p>
       <p>No response in 72 hours triggers a reminder. 48 hours after that, it auto-closes. The citizen can reopen within 7 days. That window is the accountability lever.</p>
 
@@ -670,10 +670,10 @@
     <!-- SCREENS -->
     <section class="section" id="screens">
       <span class="section-tag">The Screens</span>
-      <h2>Four screens. Each one earns its place with a decision behind it.</h2>
-      <p>The brief asked for 3–4 high-fidelity screens. I picked the four that carry the most product thinking.</p>
+      <h2>Four screens. Here's the thinking behind each one.</h2>
+      <p>The brief asked for 3–4 high-fidelity screens. These four carry the most design thinking.</p>
 
-      <h3>Home — the map with a resolved toggle</h3>
+      <h3>Home: the map with a resolved toggle</h3>
       <p>The map fills the top half. A heatmap overlay shows issue density: yellow to red for active issues, green gradient for resolved. A two-state toggle at the top switches between Active and Recently Resolved views. Below the map, a bottom sheet pulls up with the recent activity list and category filter chips.</p>
       <div class="img-block tall">
         <div class="img-placeholder">
@@ -681,9 +681,9 @@
           <div class="img-desc">Map with heatmap, Active/Resolved toggle, bottom sheet with filter chips and issue cards</div>
         </div>
       </div>
-      <p class="img-caption">Heat encoding follows universal conventions: yellow to red for active density, green gradient for resolved. Colour is never the only signal — status labels appear on every issue card.</p>
+      <p class="img-caption">Heat encoding follows universal conventions: yellow to red for active density, green gradient for resolved. Colour is never the only signal; status labels appear on every issue card.</p>
 
-      <h3>Report — dual path entry</h3>
+      <h3>Report: dual path entry</h3>
       <p>The Report tab opens to a large camera CTA with a "Choose Category" option below it. Camera triggers capture immediately. The system auto-detects the issue category and pre-fills the form. The user can override the detection before submitting. Gallery images require a valid geotag and timestamp in the metadata. Images without either get rejected with a plain-language explanation.</p>
 
       <div class="img-grid two">
@@ -701,7 +701,7 @@
         </div>
       </div>
 
-      <h3>Ticket detail — status and timeline</h3>
+      <h3>Ticket detail: status and timeline</h3>
       <p>The ticket detail shows the current status badge (Open, In Progress, Overdue, Resolved), the assigned officer's name when available, and a full chronological timeline of every update. Status uses both colour and label. When the issue goes overdue, "Escalate" and "Contact Support" appear at the bottom of the screen.</p>
 
       <div class="img-block tall">
@@ -711,8 +711,8 @@
         </div>
       </div>
 
-      <h3>Verify resolution — the citizen's confirmation</h3>
-      <p>The notification arrives. The ticket opens to before/after evidence from the field officer. Three choices, clearly labeled. Tapping "Still Unresolved" reopens the ticket and notifies the authority — with a timestamp of how long the issue has been open.</p>
+      <h3>Verify resolution: the citizen's confirmation</h3>
+      <p>The notification arrives. The ticket opens to before/after evidence from the field officer. Three choices, clearly labeled. Tapping "Still Unresolved" reopens the ticket, notifies the authority, and timestamps how long the issue has been open.</p>
 
       <div class="img-block medium">
         <div class="img-placeholder">
@@ -727,12 +727,12 @@
     <!-- TRADEOFFS -->
     <section class="section" id="tradeoffs">
       <span class="section-tag">What I Scoped Out and Why</span>
-      <h2>I made explicit scope decisions. Designing everything at 30% depth is worse than designing four things at depth.</h2>
+      <h2>I couldn't design everything in four days. Here's what I chose, and why.</h2>
 
       <div class="assumption-list">
         <div class="assumption-item">
           <span class="assumption-tag tag-included">In scope</span>
-          <div class="assumption-text">Citizen verification of resolution — the structural fix every existing app is missing.</div>
+          <div class="assumption-text">Citizen verification of resolution. This is the fix every existing app is missing.</div>
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-included">In scope</span>
@@ -740,7 +740,7 @@
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-included">In scope</span>
-          <div class="assumption-text">Active/Resolved toggle on map — resolution proof, not just complaint recording.</div>
+          <div class="assumption-text">Active/Resolved toggle on the map. Resolution proof, not just complaint recording.</div>
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-scoped">Deferred to V2</span>
@@ -748,11 +748,11 @@
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-scoped">Assumption</span>
-          <div class="assumption-text">Multi-language UI. Noto Sans covers all Indian scripts — language selection on first launch is a handoff requirement, not a design deliverable here.</div>
+          <div class="assumption-text">Multi-language UI. Noto Sans covers all Indian scripts. Language selection on first launch is a handoff requirement, not a design deliverable here.</div>
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-deferred">Won't have</span>
-          <div class="assumption-text">Community map as social layer, AI assistant, predictive maintenance, emergency services — platform layer, not MVP.</div>
+          <div class="assumption-text">Community map as social layer, AI assistant, predictive maintenance, emergency services. These belong in the platform layer, not the MVP flow.</div>
         </div>
         <div class="assumption-item">
           <span class="assumption-tag tag-scoped">Assumption</span>
@@ -766,9 +766,9 @@
     <!-- MVP -->
     <section class="section" id="mvp">
       <span class="section-tag">What Ships, What Waits</span>
-      <h2>MoSCoW applied. The Must Haves all trace back to one problem: the loop that never closes.</h2>
+      <h2>I used MoSCoW to prioritise. Everything in V1 traces back to the same problem.</h2>
 
-      <h3>Must Have — V1</h3>
+      <h3>Must Have: V1</h3>
       <div class="callout-list">
         <div class="callout-item">
           <div class="callout-num">01</div>
@@ -796,13 +796,13 @@
         </div>
       </div>
 
-      <h3>Should Have — V2</h3>
+      <h3>Should Have: V2</h3>
       <p>Smart department routing, expected resolution time, escalation to elected officials, WhatsApp reporting channel, community upvoting for severity, citizen feedback loop on officer performance.</p>
 
-      <h3>Could Have — V3+</h3>
+      <h3>Could Have: V3+</h3>
       <p>Community issue map as social layer, AI assistant, impact summary reports for residents, worker recognition system.</p>
 
-      <h3>Won't Have — this cycle</h3>
+      <h3>Won't Have: this cycle</h3>
       <p>Full authority dashboard, contractor management, predictive maintenance, emergency services, social network features, reward economy.</p>
     </section>
 
@@ -812,7 +812,7 @@
     <section class="section" id="metrics">
       <span class="section-tag">How I'd Measure This</span>
       <h2>Six numbers. Most civic apps track one of them.</h2>
-      <p>Most civic apps measure submission volume. That's a vanity metric when the issues don't get fixed. I'd measure the full loop.</p>
+      <p>Most apps measure how many complaints come in. That misses the point if the problems stay unfixed.</p>
 
       <div class="metric-grid">
         <div class="metric-tile">
@@ -847,7 +847,7 @@
         </div>
       </div>
 
-      <p>The north star is verified resolution rate: tickets actually fixed, confirmed by the person who reported them. Every other metric is a leading indicator for that number.</p>
+      <p>The number I care most about: complaints confirmed fixed by the person who filed them. Everything else tells me whether we're heading there.</p>
     </section>
 
     <hr class="divider">
@@ -872,7 +872,7 @@
       <div class="learning-item">
         <div class="learning-num">03</div>
         <h4>Design the officer-side experience</h4>
-        <p>I designed the citizen side. The officer app is where behaviour change actually happens — without it, the verification loop is incomplete. That's a separate project with its own resistance to navigate.</p>
+        <p>I designed the citizen side. The officer app is where behaviour change actually happens. Without it, the verification loop is incomplete. That's a separate project with its own challenges.</p>
       </div>
 
       <div class="learning-item">
@@ -889,9 +889,9 @@
       </div>
 
       <h3>What working on this taught me</h3>
-      <p>I came in thinking the problem was UX. The flow is long. The buttons are small. Fix that and people report more. That's not wrong — it's just upstream of the real issue.</p>
+      <p>I came in thinking the problem was UX. The flow is long. The buttons are small. Fix that and people report more. That's true, but it's not the real issue.</p>
       <p>People stopped reporting because they filed three complaints and nothing changed. The broken loop killed their motivation, not the interface. A fast reporting flow only works if it closes on the other end.</p>
-      <p>This design is a better complaint box, yes. The harder thing it tries to be is a system where fixed things are as visible as broken ones. Someone has to draw what a closed loop looks like before engineering can build one.</p>
+      <p>This design is a better complaint box, yes. But the harder thing it tries to do is make fixed problems as visible as broken ones. Someone has to define what a closed loop looks like before the team can build one.</p>
     </section>
 
   </main>
