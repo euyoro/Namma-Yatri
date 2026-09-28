@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frictionless Civic Complaint Flow · Shreyo Debnath</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
 <style>
   :root {
@@ -299,46 +299,205 @@
   }
 
   /* DESIGN SYSTEM BENTO */
-  .ds-bento { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 12px; margin: 32px 0; }
-  .ds-card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; }
-  .ds-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+  .ds-bento {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2.6fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    margin: 32px 0;
+  }
 
-  .ds-typo-card { background: #091929; grid-column: 1; grid-row: 1 / 3; }
-  .ds-typo-card .ds-tag { color: rgba(255,255,255,0.35); }
-  .ds-font-hero { font-family: 'Noto Sans', sans-serif; font-size: 36px; font-weight: 700; color: white; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px; }
-  .ds-scale-row { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .ds-scale-row:last-of-type { border-bottom: none; }
-  .ds-scale-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); white-space: nowrap; min-width: 120px; }
-  .ds-sample { font-family: 'Noto Sans', sans-serif; color: white; }
-  .ds-sample-d { font-size: 22px; font-weight: 700; }
-  .ds-sample-h1 { font-size: 18px; font-weight: 700; }
-  .ds-sample-body { font-size: 14px; font-weight: 400; }
-  .ds-sample-cap { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); }
-  .ds-font-note { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.6; margin-top: auto; padding-top: 20px; }
+  .ds-stripes {
+    grid-column: 1; grid-row: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+  }
+  .ds-stripe { flex: 1; }
 
-  .ds-primary-card { background: var(--bg-alt); border: 1px solid var(--border); grid-column: 2; grid-row: 1; }
-  .ds-primary-card .ds-tag { color: var(--tertiary); }
-  .ds-swatch-stack { display: flex; flex-direction: column; gap: 0; border-radius: 12px; overflow: hidden; flex: 1; }
-  .ds-sw { display: flex; align-items: flex-end; padding: 14px 16px; }
-  .ds-sw-label { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); line-height: 1.5; }
-  .ds-sw-label b { display: block; font-weight: 700; font-size: 11px; letter-spacing: 0.04em; }
-  .ds-sw-dark-text .ds-sw-label { color: rgba(26,26,26,0.55); }
-  .ds-sw-dark-text .ds-sw-label b { color: var(--secondary); }
+  .ds-mesh {
+    grid-column: 2; grid-row: 1;
+    border-radius: 20px;
+    min-height: 210px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #091929 0%, #1B4F72 35%, #2980B9 65%, #5DADE2 100%);
+  }
+  .ds-mesh::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 80%, rgba(234,242,248,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(41,128,185,0.5) 0%, transparent 50%);
+  }
+  .ds-mesh-pill {
+    position: absolute;
+    bottom: 24px; left: 24px;
+    background: white;
+    border-radius: 40px;
+    padding: 10px 22px 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1B4F72;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .ds-mesh-pill svg { width: 18px; height: 18px; fill: #2980B9; }
 
-  .ds-status-card { background: var(--bg-alt); border: 1px solid var(--border); grid-column: 2; grid-row: 2; }
-  .ds-status-card .ds-tag { color: var(--tertiary); }
-  .ds-status-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .ds-sc { font-size: 10px; font-weight: 700; color: white; padding: 5px 10px; border-radius: 20px; letter-spacing: 0.04em; }
-  .ds-surface-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ds-surf { font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 20px; letter-spacing: 0.04em; }
+  .ds-type-hero {
+    grid-column: 3; grid-row: 1 / 3;
+    background: #1B4F72;
+    border-radius: 20px;
+    padding: 40px 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 440px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ds-type-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(93,173,226,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .ds-type-display {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 62px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    position: relative;
+    z-index: 1;
+  }
+  .ds-type-name {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    margin-top: auto;
+    padding-top: 32px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+  .ds-type-sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+  }
 
-  .ds-why-card { background: #1B4F72; grid-column: 3; grid-row: 1 / 3; }
-  .ds-why-card .ds-tag { color: rgba(255,255,255,0.35); }
-  .ds-why-items { display: flex; flex-direction: column; gap: 0; flex: 1; }
-  .ds-why-item { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .ds-why-item:last-child { border-bottom: none; }
-  .ds-why-chip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
-  .ds-why-item p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+  .ds-icons-card {
+    grid-column: 1; grid-row: 2;
+    background: #EAF2F8;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ds-icons-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ds-icons-row svg { width: 24px; height: 24px; fill: #1B4F72; flex-shrink: 0; }
+  .ds-icons-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1B4F72;
+  }
+  .ds-icons-note {
+    font-size: 12px;
+    color: #5C6370;
+    line-height: 1.55;
+    margin-top: auto;
+  }
+
+  .ds-font-info {
+    grid-column: 2; grid-row: 2;
+    background: #F5F0E8;
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .ds-font-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A7C6A;
+    margin-bottom: 6px;
+  }
+  .ds-font-weights {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 13px;
+    color: #8A7C6A;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .ds-font-name-big {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #3A2E1F;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-top: auto;
+  }
+  .ds-font-partner {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #8A7C6A;
+    margin-top: 10px;
+  }
+
+  .ds-palette-bar {
+    grid-column: 1 / 4; grid-row: 3;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 120px;
+  }
+  .ds-pal-strip {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+    position: relative;
+  }
+  .ds-pal-strip:first-child { flex: 1.4; }
+  .ds-pal-hex {
+    font-family: 'Barlow', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+  .ds-pal-hex.light-text { color: rgba(255,255,255,0.55); }
+  .ds-pal-hex.dark-text { color: rgba(26,26,26,0.35); }
 
   /* VISUAL COMPETITOR COMPARISON */
   .comp-visual { margin: 32px 0; }
@@ -428,6 +587,11 @@
     .layout { flex-direction: column; padding: 0 20px; }
     .sidebar { display: none; width: auto; }
     .insight-grid, .persona-grid, .insight-bento, .user-bento { grid-template-columns: 1fr; }
+    .ds-bento { grid-template-columns: 1fr; }
+    .ds-type-hero { min-height: 320px; }
+    .ds-type-display { font-size: 42px; }
+    .ds-stripes { min-height: 100px; flex-direction: row; }
+    .ds-palette-bar { height: 90px; }
     .comp-visual { overflow-x: auto; }
     .comp-vis-row { grid-template-columns: 130px repeat(5, 1fr); min-width: 480px; }
     .comp-feat-col { padding: 12px 10px; font-size: 12px; }
@@ -942,85 +1106,70 @@ flowchart TD
     <section class="section" id="design-system">
       <span class="section-tag">Visual System</span>
       <h2>Built for a 45-year-old filing a complaint in direct sunlight.</h2>
-      <p>The constraints were the brief. WCAG AA contrast at minimum, a 20–50 age range spanning low and high literacy, and deployment across every Android device in India. The type system and colour system follow from those constraints — not from brand preference.</p>
+      <p>The constraints were the brief. WCAG AA contrast at minimum, a 20–50 age range spanning low and high literacy, and deployment across every Android device in India. Albert Sans handles English; Noto Sans switches in for all other Indian languages. Filled icons everywhere. Labels on everything. Touch targets large enough to hit on a bumpy autorickshaw.</p>
 
       <div class="ds-bento">
 
-        <!-- Typeface -->
-        <div class="ds-card ds-typo-card">
-          <span class="ds-tag">Typeface</span>
-          <div class="ds-font-hero">Noto Sans</div>
-          <div class="ds-scale-row">
-            <span class="ds-scale-label">Display · 28 · Bold</span>
-            <span class="ds-sample ds-sample-d">Civic report</span>
-          </div>
-          <div class="ds-scale-row">
-            <span class="ds-scale-label">H1 · 24 · Bold</span>
-            <span class="ds-sample ds-sample-h1">Civic report</span>
-          </div>
-          <div class="ds-scale-row">
-            <span class="ds-scale-label">Body · 16 · Regular</span>
-            <span class="ds-sample ds-sample-body">Report a civic issue</span>
-          </div>
-          <div class="ds-scale-row">
-            <span class="ds-scale-label">Caption · 14 · Medium</span>
-            <span class="ds-sample ds-sample-cap">Filed 3 hours ago · Ward 42</span>
-          </div>
-          <p class="ds-font-note">Noto Sans supports 11 Indian scripts natively and ships pre-installed on every Android device — zero download overhead at scale. At 16sp body size it passes WCAG AA on all five status surface colours.</p>
+        <!-- Color stripes -->
+        <div class="ds-stripes">
+          <div class="ds-stripe" style="background:#091929"></div>
+          <div class="ds-stripe" style="background:#1B4F72"></div>
+          <div class="ds-stripe" style="background:#2980B9"></div>
+          <div class="ds-stripe" style="background:#5DADE2"></div>
+          <div class="ds-stripe" style="background:#AED6F1"></div>
+          <div class="ds-stripe" style="background:#EAF2F8"></div>
         </div>
 
-        <!-- Primary colors -->
-        <div class="ds-card ds-primary-card">
-          <span class="ds-tag">Primary</span>
-          <div class="ds-swatch-stack">
-            <div class="ds-sw" style="background:#1B4F72; flex:3">
-              <span class="ds-sw-label">Deep Civic Blue<b>#1B4F72</b></span>
-            </div>
-            <div class="ds-sw" style="background:#2980B9; flex:2">
-              <span class="ds-sw-label">Action Blue<b>#2980B9</b></span>
-            </div>
-            <div class="ds-sw ds-sw-dark-text" style="background:#EAF2F8; flex:1.5">
-              <span class="ds-sw-label">Blue Wash<b>#EAF2F8</b></span>
-            </div>
+        <!-- Gradient mesh -->
+        <div class="ds-mesh">
+          <div class="ds-mesh-pill">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            Report issue
           </div>
         </div>
 
-        <!-- Status colors -->
-        <div class="ds-card ds-status-card">
-          <span class="ds-tag">Status</span>
-          <div class="ds-status-chips">
-            <span class="ds-sc" style="background:#2E7D32">Resolved</span>
-            <span class="ds-sc" style="background:#E65100">Open</span>
-            <span class="ds-sc" style="background:#D32F2F">Critical</span>
-            <span class="ds-sc" style="background:#1565C0">In Progress</span>
-            <span class="ds-sc" style="background:#6A1B9A">Reopened</span>
-          </div>
-          <div class="ds-surface-chips">
-            <span class="ds-surf" style="background:#E8F5E9; color:#2E7D32">Resolved</span>
-            <span class="ds-surf" style="background:#FFF3E0; color:#E65100">Open</span>
-            <span class="ds-surf" style="background:#FFEBEE; color:#D32F2F">Critical</span>
-            <span class="ds-surf" style="background:#E3F2FD; color:#1565C0">Active</span>
-            <span class="ds-surf" style="background:#F3E5F5; color:#6A1B9A">Escalated</span>
-          </div>
+        <!-- Type specimen hero -->
+        <div class="ds-type-hero">
+          <div class="ds-type-display">AaBbCc<br>01234567<br>{(!@#$?&)}</div>
+          <div class="ds-type-name">Albert Sans</div>
+          <div class="ds-type-sub">+ Noto Sans for Kannada, Hindi, Tamil &amp; 8 more scripts</div>
         </div>
 
-        <!-- Why card -->
-        <div class="ds-card ds-why-card">
-          <span class="ds-tag">Why these constraints</span>
-          <div class="ds-why-items">
-            <div class="ds-why-item">
-              <span class="ds-why-chip">Age 20–50</span>
-              <p>Body text never below 16sp. Critical labels never below 14sp. No ambiguity in type hierarchy for users with varying visual acuity.</p>
-            </div>
-            <div class="ds-why-item">
-              <span class="ds-why-chip">WCAG AA</span>
-              <p>Every status colour pair — foreground on surface — passes the 4.5:1 minimum. Colour is never the only signal: each status gets a label, colour, and icon.</p>
-            </div>
-            <div class="ds-why-item">
-              <span class="ds-why-chip">8dp grid</span>
-              <p>Anchors to Android's Material baseline. Scales from 360dp budget phones to 428dp flagships without a single layout breakpoint.</p>
-            </div>
+        <!-- Icon style -->
+        <div class="ds-icons-card">
+          <div class="ds-icons-label">Filled icons</div>
+          <div class="ds-icons-row">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="white"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4" fill="white"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" fill="#1B4F72"/><polyline points="22 4 12 14.01 9 11.01" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="white"/></svg>
           </div>
+          <p class="ds-icons-note">Higher visual contrast in outdoor light. Every icon paired with a text label.</p>
+        </div>
+
+        <!-- Font info -->
+        <div class="ds-font-info">
+          <div class="ds-font-label">Main typeface</div>
+          <div class="ds-font-weights">
+            <span style="font-weight:400">Regular</span>&nbsp;&nbsp;
+            <span style="font-weight:500">Medium</span><br>
+            <span style="font-weight:600">SemiBold</span>&nbsp;&nbsp;
+            <span style="font-weight:700">Bold</span>
+          </div>
+          <div class="ds-font-name-big">Albert Sans</div>
+          <div class="ds-font-partner">+ Noto Sans for 11 Indian scripts</div>
+        </div>
+
+        <!-- Status palette bar -->
+        <div class="ds-palette-bar">
+          <div class="ds-pal-strip" style="background:#1B4F72"><span class="ds-pal-hex light-text">#1B4F72</span></div>
+          <div class="ds-pal-strip" style="background:#2980B9"><span class="ds-pal-hex light-text">#2980B9</span></div>
+          <div class="ds-pal-strip" style="background:#2E7D32"><span class="ds-pal-hex light-text">#2E7D32</span></div>
+          <div class="ds-pal-strip" style="background:#E65100"><span class="ds-pal-hex light-text">#E65100</span></div>
+          <div class="ds-pal-strip" style="background:#D32F2F"><span class="ds-pal-hex light-text">#D32F2F</span></div>
+          <div class="ds-pal-strip" style="background:#EAF2F8"><span class="ds-pal-hex dark-text">#EAF2F8</span></div>
+          <div class="ds-pal-strip" style="background:#F0F0F0"><span class="ds-pal-hex dark-text">#F0F0F0</span></div>
+          <div class="ds-pal-strip" style="background:#1A1A1A"><span class="ds-pal-hex light-text">#1A1A1A</span></div>
         </div>
 
       </div>
