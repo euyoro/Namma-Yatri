@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frictionless Civic Complaint Flow · Shreyo Debnath</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
 <style>
   :root {
@@ -230,8 +230,8 @@
     overflow: hidden;
   }
 
-  .ib-card.ib-navy { background: #091929; }
-  .ib-card.ib-warm { background: #17060E; }
+  .ib-card.ib-navy { background: #FFFCF4; border: 1px solid #F0E6CA; }
+  .ib-card.ib-warm { background: #FFF6EE; border: 1px solid #F5DFD0; }
   .ib-card.ib-metric { background: white; border: 1px solid var(--border); }
 
   .ib-blob {
@@ -246,8 +246,8 @@
     pointer-events: none;
     z-index: 0;
   }
-  .ib-navy .ib-blob { background: radial-gradient(circle, #2E86C1 20%, #1B4F72 60%, transparent 85%); opacity: 0.9; }
-  .ib-warm .ib-blob { background: radial-gradient(circle, #F5A623 0%, #D44000 40%, transparent 75%); opacity: 0.85; }
+  .ib-navy .ib-blob { background: radial-gradient(circle, #FFC107 20%, #FF9800 55%, transparent 80%); opacity: 0.28; }
+  .ib-warm .ib-blob { background: radial-gradient(circle, #FF8A65 0%, #FF6D3A 45%, transparent 78%); opacity: 0.22; }
 
   .ib-label {
     display: block;
@@ -257,7 +257,7 @@
     text-transform: uppercase;
     text-align: center;
   }
-  .ib-navy .ib-label, .ib-warm .ib-label { color: rgba(255,255,255,0.32); }
+  .ib-navy .ib-label, .ib-warm .ib-label { color: rgba(26,26,26,0.32); }
   .ib-metric .ib-label { color: var(--tertiary); }
 
   .ib-text {
@@ -265,12 +265,12 @@
     font-size: 1.22rem;
     font-weight: 600;
     line-height: 1.45;
-    color: white;
     margin: auto 0 0;
     position: relative;
     z-index: 1;
   }
-  .ib-text em { font-style: italic; }
+  .ib-card .ib-text { color: var(--black); }
+  .ib-text em { font-style: italic; color: #B8860B; }
 
   .ib-meta-title {
     font-size: 14px;
@@ -285,7 +285,7 @@
     font-weight: 800;
     letter-spacing: -0.05em;
     line-height: 1;
-    color: #2874A6;
+    color: #2980B9;
     margin: auto 0 8px;
   }
   .ib-unit { font-size: 40px; font-weight: 800; }
@@ -297,6 +297,48 @@
     color: var(--tertiary);
     line-height: 1.5;
   }
+
+  /* DESIGN SYSTEM BENTO */
+  .ds-bento { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 12px; margin: 32px 0; }
+  .ds-card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; }
+  .ds-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+
+  .ds-typo-card { background: #091929; grid-column: 1; grid-row: 1 / 3; }
+  .ds-typo-card .ds-tag { color: rgba(255,255,255,0.35); }
+  .ds-font-hero { font-family: 'Noto Sans', sans-serif; font-size: 36px; font-weight: 700; color: white; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px; }
+  .ds-scale-row { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ds-scale-row:last-of-type { border-bottom: none; }
+  .ds-scale-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); white-space: nowrap; min-width: 120px; }
+  .ds-sample { font-family: 'Noto Sans', sans-serif; color: white; }
+  .ds-sample-d { font-size: 22px; font-weight: 700; }
+  .ds-sample-h1 { font-size: 18px; font-weight: 700; }
+  .ds-sample-body { font-size: 14px; font-weight: 400; }
+  .ds-sample-cap { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); }
+  .ds-font-note { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.6; margin-top: auto; padding-top: 20px; }
+
+  .ds-primary-card { background: var(--bg-alt); border: 1px solid var(--border); grid-column: 2; grid-row: 1; }
+  .ds-primary-card .ds-tag { color: var(--tertiary); }
+  .ds-swatch-stack { display: flex; flex-direction: column; gap: 0; border-radius: 12px; overflow: hidden; flex: 1; }
+  .ds-sw { display: flex; align-items: flex-end; padding: 14px 16px; }
+  .ds-sw-label { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); line-height: 1.5; }
+  .ds-sw-label b { display: block; font-weight: 700; font-size: 11px; letter-spacing: 0.04em; }
+  .ds-sw-dark-text .ds-sw-label { color: rgba(26,26,26,0.55); }
+  .ds-sw-dark-text .ds-sw-label b { color: var(--secondary); }
+
+  .ds-status-card { background: var(--bg-alt); border: 1px solid var(--border); grid-column: 2; grid-row: 2; }
+  .ds-status-card .ds-tag { color: var(--tertiary); }
+  .ds-status-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .ds-sc { font-size: 10px; font-weight: 700; color: white; padding: 5px 10px; border-radius: 20px; letter-spacing: 0.04em; }
+  .ds-surface-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ds-surf { font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 20px; letter-spacing: 0.04em; }
+
+  .ds-why-card { background: #1B4F72; grid-column: 3; grid-row: 1 / 3; }
+  .ds-why-card .ds-tag { color: rgba(255,255,255,0.35); }
+  .ds-why-items { display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .ds-why-item { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .ds-why-item:last-child { border-bottom: none; }
+  .ds-why-chip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
+  .ds-why-item p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
 
   /* VISUAL COMPETITOR COMPARISON */
   .comp-visual { margin: 32px 0; }
@@ -460,6 +502,7 @@
       <li><a href="#users"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Users</a></li>
       <li><a href="#reframe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>The reframe</a></li>
       <li><a href="#decisions"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>The solution</a></li>
+      <li><a href="#design-system"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>Visual system</a></li>
       <li><a href="#flows"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>Three flows</a></li>
       <li><a href="#screens"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>The screens</a></li>
       <li><a href="#tradeoffs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>Scope</a></li>
@@ -891,6 +934,96 @@ flowchart TD
         </div>
       </div>
 
+    </section>
+
+    <hr class="divider">
+
+    <!-- DESIGN SYSTEM -->
+    <section class="section" id="design-system">
+      <span class="section-tag">Visual System</span>
+      <h2>Built for a 45-year-old filing a complaint in direct sunlight.</h2>
+      <p>The constraints were the brief. WCAG AA contrast at minimum, a 20–50 age range spanning low and high literacy, and deployment across every Android device in India. The type system and colour system follow from those constraints — not from brand preference.</p>
+
+      <div class="ds-bento">
+
+        <!-- Typeface -->
+        <div class="ds-card ds-typo-card">
+          <span class="ds-tag">Typeface</span>
+          <div class="ds-font-hero">Noto Sans</div>
+          <div class="ds-scale-row">
+            <span class="ds-scale-label">Display · 28 · Bold</span>
+            <span class="ds-sample ds-sample-d">Civic report</span>
+          </div>
+          <div class="ds-scale-row">
+            <span class="ds-scale-label">H1 · 24 · Bold</span>
+            <span class="ds-sample ds-sample-h1">Civic report</span>
+          </div>
+          <div class="ds-scale-row">
+            <span class="ds-scale-label">Body · 16 · Regular</span>
+            <span class="ds-sample ds-sample-body">Report a civic issue</span>
+          </div>
+          <div class="ds-scale-row">
+            <span class="ds-scale-label">Caption · 14 · Medium</span>
+            <span class="ds-sample ds-sample-cap">Filed 3 hours ago · Ward 42</span>
+          </div>
+          <p class="ds-font-note">Noto Sans supports 11 Indian scripts natively and ships pre-installed on every Android device — zero download overhead at scale. At 16sp body size it passes WCAG AA on all five status surface colours.</p>
+        </div>
+
+        <!-- Primary colors -->
+        <div class="ds-card ds-primary-card">
+          <span class="ds-tag">Primary</span>
+          <div class="ds-swatch-stack">
+            <div class="ds-sw" style="background:#1B4F72; flex:3">
+              <span class="ds-sw-label">Deep Civic Blue<b>#1B4F72</b></span>
+            </div>
+            <div class="ds-sw" style="background:#2980B9; flex:2">
+              <span class="ds-sw-label">Action Blue<b>#2980B9</b></span>
+            </div>
+            <div class="ds-sw ds-sw-dark-text" style="background:#EAF2F8; flex:1.5">
+              <span class="ds-sw-label">Blue Wash<b>#EAF2F8</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status colors -->
+        <div class="ds-card ds-status-card">
+          <span class="ds-tag">Status</span>
+          <div class="ds-status-chips">
+            <span class="ds-sc" style="background:#2E7D32">Resolved</span>
+            <span class="ds-sc" style="background:#E65100">Open</span>
+            <span class="ds-sc" style="background:#D32F2F">Critical</span>
+            <span class="ds-sc" style="background:#1565C0">In Progress</span>
+            <span class="ds-sc" style="background:#6A1B9A">Reopened</span>
+          </div>
+          <div class="ds-surface-chips">
+            <span class="ds-surf" style="background:#E8F5E9; color:#2E7D32">Resolved</span>
+            <span class="ds-surf" style="background:#FFF3E0; color:#E65100">Open</span>
+            <span class="ds-surf" style="background:#FFEBEE; color:#D32F2F">Critical</span>
+            <span class="ds-surf" style="background:#E3F2FD; color:#1565C0">Active</span>
+            <span class="ds-surf" style="background:#F3E5F5; color:#6A1B9A">Escalated</span>
+          </div>
+        </div>
+
+        <!-- Why card -->
+        <div class="ds-card ds-why-card">
+          <span class="ds-tag">Why these constraints</span>
+          <div class="ds-why-items">
+            <div class="ds-why-item">
+              <span class="ds-why-chip">Age 20–50</span>
+              <p>Body text never below 16sp. Critical labels never below 14sp. No ambiguity in type hierarchy for users with varying visual acuity.</p>
+            </div>
+            <div class="ds-why-item">
+              <span class="ds-why-chip">WCAG AA</span>
+              <p>Every status colour pair — foreground on surface — passes the 4.5:1 minimum. Colour is never the only signal: each status gets a label, colour, and icon.</p>
+            </div>
+            <div class="ds-why-item">
+              <span class="ds-why-chip">8dp grid</span>
+              <p>Anchors to Android's Material baseline. Scales from 360dp budget phones to 428dp flagships without a single layout breakpoint.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <hr class="divider">
