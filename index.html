@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frictionless Civic Complaint Flow · Shreyo Debnath</title>
+<title>UX Case Study : Civic App for Reporting Public Infrastructure · Shreyo Debnath</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
 <style>
@@ -45,7 +45,7 @@
   .nav-links a:hover { color: var(--black); }
 
   /* HERO */
-  .hero { padding: 120px 60px 80px; max-width: 1400px; margin: 0 auto; }
+  .hero { padding: 120px 60px 60px; max-width: 800px; margin: 0 auto; }
   .hero-tag { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
   .company-pill {
     display: inline-flex; align-items: center; gap: 8px;
@@ -68,7 +68,7 @@
 
   /* HERO COVER */
   .hero-cover {
-    margin: 0 auto;
+    margin: 60px auto 0;
     width: 100%;
   }
   .hero-cover img {
@@ -78,10 +78,10 @@
   }
 
   /* LAYOUT */
-  .layout { display: flex; align-items: start; max-width: 1400px; margin: 0 auto; padding: 0 60px; gap: 0; }
+  .layout { display: flex; align-items: start; max-width: 800px; margin: 0 auto; padding: 0 0; gap: 0; }
 
   /* SIDEBAR */
-  .sidebar { position: sticky; top: 80px; width: 260px; flex-shrink: 0; padding-right: 40px; }
+  .sidebar { display: none; }
   .sidebar-nav { list-style: none; }
   .sidebar-nav li { margin-bottom: 0; }
   .sidebar-nav a {
@@ -97,22 +97,22 @@
   .sidebar-section { display: none; }
 
   /* MAIN */
-  .main { padding-bottom: 120px; max-width: 680px; flex: 1; }
+  .main { padding-bottom: 120px; max-width: 800px; flex: 1; }
 
   /* SECTIONS */
-  .section { margin-bottom: 100px; }
-  .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 20px; display: block; }
-  .section h2 { font-family: 'Barlow', sans-serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; color: var(--black); margin-bottom: 24px; }
-  .section h3 { font-family: 'Barlow', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--black); margin: 40px 0 14px; }
-  .section p { color: var(--secondary); margin-bottom: 20px; max-width: 640px; line-height: 1.8; }
+  .section { padding-top: 140px; }
+  .section-tag { font-size: 16px; font-weight: 400; color: #A7A7A7; margin-bottom: 10px; display: block; letter-spacing: 0; text-transform: none; }
+  .section h2 { font-family: 'Barlow', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; color: var(--black); margin-bottom: 20px; }
+  .section h3 { font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--black); margin: 48px 0 16px; }
+  .section p { color: var(--text); margin-bottom: 16px; max-width: 800px; line-height: 1.7; font-size: 17px; }
   .section p:last-child { margin-bottom: 0; }
 
-  .divider { border: none; border-top: 1px solid var(--border); margin: 100px 0; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
   /* IMAGE BLOCKS */
   .img-block {
     background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px;
-    display: flex; align-items: center; justify-content: center; margin: 32px 0;
+    display: flex; align-items: center; justify-content: center; margin: 40px 0;
   }
   .img-block.tall { height: 480px; }
   .img-block.medium { height: 360px; }
@@ -122,12 +122,12 @@
   .img-placeholder .img-title { font-size: 14px; font-weight: 600; color: var(--secondary); margin-bottom: 6px; }
   .img-placeholder .img-desc { font-size: 12px; color: var(--tertiary); }
 
-  .img-grid { display: grid; gap: 12px; margin: 32px 0; }
+  .img-grid { display: grid; gap: 16px; margin: 40px 0; }
   .img-grid.two { grid-template-columns: 1fr 1fr; }
   .img-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   /* PULL QUOTE */
-  .pull-quote { position: relative; background: var(--bg-alt); border-radius: 16px; padding: 48px 40px 36px; margin: 40px 0; overflow: hidden; }
+  .pull-quote { position: relative; background: var(--bg-alt); border-radius: 16px; padding: 48px 40px 36px; margin: 48px 0; overflow: hidden; }
   .pull-quote::before {
     content: '\201C';
     font-family: 'Barlow', Georgia, serif;
@@ -562,11 +562,10 @@
   @media (max-width: 768px) {
     .top-nav { padding: 0 20px; }
     .nav-links { gap: 20px; }
-    .hero { padding: 100px 20px 60px; }
-    .hero-image { margin: 0 20px 60px; height: 280px; padding: 0 20px; }
+    .hero { padding: 100px 20px 40px; }
     .hero-stats { gap: 28px; flex-wrap: wrap; }
     .layout { flex-direction: column; padding: 0 20px; }
-    .sidebar { display: none; width: auto; }
+    .section { padding-top: 80px; }
     .insight-grid, .persona-grid, .insight-bento { grid-template-columns: 1fr; }
     .ds-bento { grid-template-columns: 1fr; }
     .ds-type-hero { min-height: 320px; }
@@ -607,7 +606,7 @@
     </div>
     <span class="hero-meta">Design Assignment · 4 Days</span>
   </div>
-  <h1>A civic complaint system that actually closes the loop.</h1>
+  <h1>UX Case Study : Civic App for Reporting Public Infrastructure</h1>
   <p class="hero-subtitle">Most civic apps let you report a pothole. This one tells you it got fixed. And lets you reopen it if it didn't.</p>
   <div class="hero-stats">
     <div>
