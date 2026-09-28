@@ -217,6 +217,135 @@
   .learning-item h4 { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: -0.02em; }
   .learning-item p { font-size: 15px; color: var(--secondary); margin: 0; max-width: 580px; }
 
+  /* INSIGHT BENTO */
+  .insight-bento { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 32px 0; }
+
+  .ib-card {
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ib-card.ib-navy { background: #091929; }
+  .ib-card.ib-warm { background: #17060E; }
+  .ib-card.ib-metric { background: white; border: 1px solid var(--border); }
+
+  .ib-blob {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ib-navy .ib-blob { background: radial-gradient(circle, #2E86C1 20%, #1B4F72 60%, transparent 85%); opacity: 0.9; }
+  .ib-warm .ib-blob { background: radial-gradient(circle, #F5A623 0%, #D44000 40%, transparent 75%); opacity: 0.85; }
+
+  .ib-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .ib-navy .ib-label, .ib-warm .ib-label { color: rgba(255,255,255,0.32); }
+  .ib-metric .ib-label { color: var(--tertiary); }
+
+  .ib-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: white;
+    margin: auto 0 0;
+    position: relative;
+    z-index: 1;
+  }
+  .ib-text em { font-style: italic; }
+
+  .ib-meta-title {
+    font-size: 14px;
+    color: var(--secondary);
+    line-height: 1.55;
+    margin: 12px 0 auto;
+    max-width: 210px;
+  }
+  .ib-number {
+    font-family: 'Barlow', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: #2874A6;
+    margin: auto 0 8px;
+  }
+  .ib-unit { font-size: 40px; font-weight: 800; }
+  .ib-sublabel {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tertiary);
+    line-height: 1.5;
+  }
+
+  /* VISUAL COMPETITOR COMPARISON */
+  .comp-visual { margin: 32px 0; }
+  .comp-vis-row { display: grid; grid-template-columns: 160px repeat(5, 1fr); align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .comp-vis-row:last-child { border-bottom: none; }
+  .comp-header-row { padding: 0 0 24px; border-bottom: 2px solid var(--border); }
+  .comp-feat-header { font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 800; color: var(--black); }
+  .comp-app-col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .comp-app-icon { width: 60px; height: 60px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.12); flex-shrink: 0; }
+  .comp-app-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .comp-app-name { font-size: 10px; font-weight: 600; color: var(--tertiary); text-align: center; line-height: 1.4; max-width: 70px; }
+  .comp-feat-col { font-size: 14px; color: var(--text); font-weight: 500; padding-right: 12px; line-height: 1.4; }
+  .comp-feat-col.key { font-weight: 700; color: var(--black); }
+  .comp-cell { display: flex; justify-content: center; align-items: center; padding: 4px 0; }
+  .comp-yes, .comp-no { display: inline-block; width: 32px; height: 32px; flex-shrink: 0; }
+
+  /* MERMAID DIAGRAM WRAPPERS */
+  .mermaid-wrap { margin: 32px 0; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 24px 16px; overflow-x: auto; }
+  .mermaid-wrap .mermaid { display: flex; justify-content: center; }
+  .mermaid-diagram-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tertiary); text-align: center; margin-bottom: 20px; display: block; }
+
+  /* USER BENTO */
+  .user-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 32px 0; }
+  .ub-card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; min-height: 360px; }
+  .ub-dark { background: #091929; }
+  .ub-mid { background: var(--bg-alt); border: 1px solid var(--border); }
+  .ub-light { background: var(--accent-light); border: 1px solid #AED6F1; }
+  .ub-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px; flex-shrink: 0; }
+  .ub-dark .ub-avatar { background: rgba(255,255,255,0.08); }
+  .ub-mid .ub-avatar { background: var(--border); }
+  .ub-light .ub-avatar { background: #D6EAF8; }
+  .ub-name { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2px; }
+  .ub-dark .ub-name { color: white; }
+  .ub-mid .ub-name, .ub-light .ub-name { color: var(--black); }
+  .ub-role { font-size: 11px; font-weight: 600; margin-bottom: 18px; }
+  .ub-dark .ub-role { color: rgba(255,255,255,0.38); }
+  .ub-mid .ub-role, .ub-light .ub-role { color: var(--tertiary); }
+  .ub-quote { font-size: 13px; line-height: 1.65; padding: 14px 16px; border-radius: 10px; flex: 1; margin-bottom: 18px; font-style: italic; }
+  .ub-dark .ub-quote { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); }
+  .ub-mid .ub-quote { background: white; color: var(--secondary); border: 1px solid var(--border); }
+  .ub-light .ub-quote { background: white; color: var(--secondary); border: 1px solid #AED6F1; }
+  .ub-exit-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .ub-dark .ub-exit-label { color: rgba(255,255,255,0.28); }
+  .ub-mid .ub-exit-label, .ub-light .ub-exit-label { color: var(--tertiary); }
+  .ub-exit { font-size: 13px; font-weight: 600; line-height: 1.5; }
+  .ub-dark .ub-exit { color: rgba(255,255,255,0.62); }
+  .ub-mid .ub-exit { color: var(--black); }
+  .ub-light .ub-exit { color: var(--accent); }
+
   /* COMPETITOR TABLE */
   .comp-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
   .comp-table thead tr { border-bottom: 1.5px solid var(--border); }
@@ -256,7 +385,14 @@
     .hero-stats { gap: 28px; flex-wrap: wrap; }
     .layout { flex-direction: column; padding: 0 20px; }
     .sidebar { display: none; width: auto; }
-    .insight-grid, .persona-grid { grid-template-columns: 1fr; }
+    .insight-grid, .persona-grid, .insight-bento, .user-bento { grid-template-columns: 1fr; }
+    .comp-visual { overflow-x: auto; }
+    .comp-vis-row { grid-template-columns: 130px repeat(5, 1fr); min-width: 480px; }
+    .comp-feat-col { padding: 12px 10px; font-size: 12px; }
+    .ub-card { min-height: 280px; }
+    .ib-card { min-height: 240px; }
+    .ib-number { font-size: 64px; }
+    .ib-unit { font-size: 32px; }
     .metric-grid { grid-template-columns: 1fr 1fr; }
     .decision-options { grid-template-columns: 1fr; }
     .decision-option:first-child { border-right: none; border-bottom: 1px solid var(--border); }
@@ -367,27 +503,34 @@
       <p>So citizens stop filing. The real metric isn't how many reports get submitted. It's how many get submitted again by the same person. Among users who've been disappointed once, that number is near zero. They don't come back.</p>
       <p>The app didn't fail at the reporting step. It failed at resolution.</p>
 
-      <div class="insight-grid">
-        <div class="insight-card">
-          <div class="insight-num">Problem A</div>
-          <h4>"Resolved" is a ticket state. It's not a physical state.</h4>
-          <p>Officers can close tickets without fixing anything. No citizen confirmation exists in any of the five major apps I studied.</p>
+      <div class="insight-bento">
+
+        <div class="ib-card ib-navy">
+          <div class="ib-blob"></div>
+          <span class="ib-label">Insight 01</span>
+          <p class="ib-text">All five apps track the ticket. None of them track the <em>problem</em>.</p>
         </div>
-        <div class="insight-card">
-          <div class="insight-num">Problem B</div>
-          <h4>Routing breaks at department handoff</h4>
-          <p>When jurisdiction is unclear, nobody acts. The citizen absorbs the cost of the system's internal confusion.</p>
+
+        <div class="ib-card ib-metric">
+          <span class="ib-label">Insight 02</span>
+          <p class="ib-meta-title">Swachhata-MoHUA's average App Store rating</p>
+          <div class="ib-number">1.9<span class="ib-unit">★</span></div>
+          <p class="ib-sublabel">Out of 8.4M downloads, most users have stopped filing</p>
         </div>
-        <div class="insight-card">
-          <div class="insight-num">Problem C</div>
-          <h4>The app itself is the first barrier</h4>
-          <p>Swachhata's App Store rating is 1.9. BBMP Fix My Street users report 10-minute load times. The friction isn't the form. It's getting the app to open.</p>
+
+        <div class="ib-card ib-metric">
+          <span class="ib-label">Insight 03</span>
+          <p class="ib-meta-title">Post-closure survey response rate, Janaagraha</p>
+          <div class="ib-number">&lt;4<span class="ib-unit">%</span></div>
+          <p class="ib-sublabel">Not a verification mechanism. A checkbox.</p>
         </div>
-        <div class="insight-card">
-          <div class="insight-num">Problem D</div>
-          <h4>Officers are incentivised to close tickets, not fix things</h4>
-          <p>KPIs measure how fast tickets close, not whether problems get fixed. Any design that doesn't address this will have the same outcome as everything before it.</p>
+
+        <div class="ib-card ib-warm">
+          <div class="ib-blob"></div>
+          <span class="ib-label">Insight 04</span>
+          <p class="ib-text">Officers are incentivised to close tickets, not fix things. Any design that ignores this produces the same outcome as every app before it.</p>
         </div>
+
       </div>
     </section>
 
@@ -400,6 +543,34 @@
       <p>The first move was an audit: five apps, same task, timed. File a pothole complaint, track it to resolution, test what happens when the resolution is wrong. That took a week. The insight from it shaped everything after: the problem wasn't in the reporting step, it was in what happened after the official clicked close.</p>
       <p>From there: define the users, map their current-state journeys, find where trust breaks. Then reframe. Then IA. Then flows. Then screens.</p>
       <p>The discipline was staying in research long enough to earn the reframe. Jumping to flows before understanding why people abandon would have produced a prettier version of the same broken loop.</p>
+
+      <h3>Information architecture</h3>
+      <div class="mermaid-wrap">
+        <span class="mermaid-diagram-label">App structure — 3 tabs, one shared ticket state</span>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#D6EAF8', 'primaryTextColor': '#1B4F72', 'primaryBorderColor': '#2874A6', 'lineColor': '#9A9A9A', 'fontFamily': 'Montserrat, sans-serif', 'fontSize': '13px'}}}%%
+flowchart TD
+  classDef root fill:#091929,stroke:#091929,color:white
+  classDef tab fill:#1B4F72,stroke:#1B4F72,color:white
+  classDef view fill:#D6EAF8,stroke:#AED6F1,color:#1B4F72
+  classDef action fill:#D5F5E3,stroke:#A9DFBF,color:#1A7A4A
+  classDef approve fill:#27AE60,stroke:#27AE60,color:white
+  classDef reopen fill:#C0392B,stroke:#C0392B,color:white
+
+  A([Civic App]):::root --> B[Home]:::tab
+  A --> C[Report]:::tab
+  A --> D[Profile]:::tab
+  B --> E[Nearby issues on map]:::view
+  D --> F[My Activity — reported tickets]:::view
+  E --> G[Issue / Ticket]:::view
+  F --> G
+  G --> H[Track status + timeline]:::action
+  G --> I[Escalate if overdue]:::action
+  G --> J[Verify resolution]:::action
+  J --> K([Approve]):::approve
+  J --> L([Reopen]):::reopen
+        </div>
+      </div>
     </section>
 
     <hr class="divider">
@@ -410,7 +581,84 @@
       <h2>Five apps. One finding, repeated across all of them.</h2>
       <p>Before touching a wireframe, I looked at every major Indian civic app. Not just the descriptions but what users said actually happened to them.</p>
 
-      <table class="comp-table">
+      <div class="comp-visual">
+        <!-- Header: real app icons -->
+        <div class="comp-vis-row comp-header-row">
+          <div class="comp-feat-header">Features</div>
+          <div class="comp-app-col">
+            <div class="comp-app-icon"><img src="https://play-lh.googleusercontent.com/iY8ygGy3-_KPJfLAA9tqBY5vaz9HCOhhXtupSn7IG4-pJzqNelfUksWxQN0h32tuMFoqRhu6EnBRKyk15eFDkA=s128-rw" alt="Swachhata MoHUA"></div>
+            <div class="comp-app-name">Swachhata<br>MoHUA</div>
+          </div>
+          <div class="comp-app-col">
+            <div class="comp-app-icon"><img src="https://play-lh.googleusercontent.com/7bCP_DzMx_cvkszIXfNGF-Rhg6wY0OcPZpoLmA-N6cQf6lXQJlh-MqVdNUnhvESjpGJACYuy_TwgqOf0VMuAOqI=s64-rw" alt="BBMP Fix My Street"></div>
+            <div class="comp-app-name">BBMP Fix<br>My Street</div>
+          </div>
+          <div class="comp-app-col">
+            <div class="comp-app-icon"><img src="https://play-lh.googleusercontent.com/ykReaigEKH7WVhR68xCpstRn2I7qqrXsG6zI-TdG-CcW8_fOsf9xMSIbfuhDmQnnElKiLeWYot7g7iKzWdZZPA=s64-rw" alt="Fix My Street UK"></div>
+            <div class="comp-app-name">Fix My Street<br>UK</div>
+          </div>
+          <div class="comp-app-col">
+            <div class="comp-app-icon"><img src="https://play-lh.googleusercontent.com/4iZvXPh2uT5QsqmQSTV7YOD0x_Kx5jZlI2pqQFoAtl2Jrw90kxFIK95rEA-bpBMZYsTyfbiGVc3ZMppa64aYhoc=s64-rw" alt="SeeClickFix US"></div>
+            <div class="comp-app-name">SeeClickFix<br>US</div>
+          </div>
+          <div class="comp-app-col">
+            <div class="comp-app-icon"><img src="https://play-lh.googleusercontent.com/iMwbZS7TGTYfnIGpBbHSFLYHbr2kP_QFYwRPYjc1FcaLtL4hNGIottIa_79CG_T2Dj6AtjE9YHUm8hL5LPAWWw=s128-rw" alt="Janaagraha"></div>
+            <div class="comp-app-name">Janaagraha</div>
+          </div>
+        </div>
+        <!-- Feature rows -->
+        <div class="comp-vis-row">
+          <div class="comp-feat-col">App stability</div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-vis-row">
+          <div class="comp-feat-col">Easy submission</div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-vis-row">
+          <div class="comp-feat-col">Status tracking</div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-vis-row">
+          <div class="comp-feat-col">Department routing</div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-yes" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#27AE60"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <!-- KEY rows: all five have no citizen verification or reopen -->
+        <div class="comp-vis-row">
+          <div class="comp-feat-col key">Citizen verification</div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="comp-vis-row">
+          <div class="comp-feat-col key">Reopen after close</div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-cell"><svg class="comp-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#E74C3C"/><path d="M10.5 10.5L21.5 21.5M21.5 10.5L10.5 21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>
+
+      <table class="comp-table" style="display:none">
         <thead>
           <tr>
             <th>App</th>
@@ -448,13 +696,6 @@
       </table>
 
       <p>All five track the ticket. None of them track the problem. That's the gap.</p>
-
-      <div class="img-block medium">
-        <div class="img-placeholder">
-          <div class="img-title">Competitive teardown</div>
-          <div class="img-desc">Side-by-side of five apps, same task: file, track, test the resolution</div>
-        </div>
-      </div>
     </section>
 
     <hr class="divider">
@@ -488,33 +729,30 @@
       <h2>Three types. Same app, different orientations.</h2>
       <p>Three users. All three current-state journeys were mapped across five phases: Discover, Report, Submit, Wait, Resolution. All three end at the same phase: frustrated, abandoned.</p>
 
-      <div class="persona-grid">
-        <div class="persona-card">
-          <div class="persona-img"><span>👩‍💼</span></div>
-          <div class="persona-body">
-            <div class="persona-name">Ananya Sharma, 27</div>
-            <div class="persona-role">Marketing Executive · Koramangala · High digital literacy</div>
-            <div class="persona-goal">"I'll report it if it takes two minutes. I won't spend twenty on a pothole I pass every day."</div>
-            <div class="persona-pain"><strong>Her exit:</strong> Reports immediately when she spots something. When nothing happens in three days, she doesn't follow up. She moves on.</div>
-          </div>
+      <div class="user-bento">
+        <div class="ub-card ub-dark">
+          <div class="ub-avatar">👩‍💼</div>
+          <div class="ub-name">Ananya Sharma, 27</div>
+          <div class="ub-role">Marketing Executive · Koramangala · High digital literacy</div>
+          <div class="ub-quote">"I'll report it if it takes two minutes. I won't spend twenty on a pothole I pass every day."</div>
+          <div class="ub-exit-label">Her exit</div>
+          <div class="ub-exit">Reports immediately when she spots something. When nothing happens in three days, she doesn't follow up. She moves on.</div>
         </div>
-        <div class="persona-card">
-          <div class="persona-img"><span>👨‍💼</span></div>
-          <div class="persona-body">
-            <div class="persona-name">Ramesh Kumar, 42</div>
-            <div class="persona-role">Small Business Owner · Bengaluru · Moderate literacy</div>
-            <div class="persona-goal">"Submitting is easy. Finding out who's going to fix it, that's the hard part."</div>
-            <div class="persona-pain"><strong>His exit:</strong> Uses the app because he believes systems can be held accountable. When the escalation path hits a wall, he leaves and tells people about it.</div>
-          </div>
+        <div class="ub-card ub-mid">
+          <div class="ub-avatar">👨‍💼</div>
+          <div class="ub-name">Ramesh Kumar, 42</div>
+          <div class="ub-role">Small Business Owner · Bengaluru · Moderate literacy</div>
+          <div class="ub-quote">"Submitting is easy. Finding out who's actually going to fix it — that's the hard part."</div>
+          <div class="ub-exit-label">His exit</div>
+          <div class="ub-exit">Believes systems can be held accountable. When the escalation path hits a wall, he leaves — and tells people about it.</div>
         </div>
-        <div class="persona-card">
-          <div class="persona-img"><span>👩</span></div>
-          <div class="persona-body">
-            <div class="persona-name">Meena Devi, 35</div>
-            <div class="persona-role">Homemaker · Mysuru · Low-moderate literacy</div>
-            <div class="persona-goal">"Ten people in our area have the same problem. Why do we each have to complain separately?"</div>
-            <div class="persona-pain"><strong>Her exit:</strong> Files on behalf of her neighbourhood. When the app fails one issue, she stops using it for all of them. Her dropout removes not one user but a cluster.</div>
-          </div>
+        <div class="ub-card ub-light">
+          <div class="ub-avatar">👩</div>
+          <div class="ub-name">Meena Devi, 35</div>
+          <div class="ub-role">Homemaker · Mysuru · Low-moderate literacy</div>
+          <div class="ub-quote">"Ten people in our area have the same problem. Why do we each have to complain separately?"</div>
+          <div class="ub-exit-label">Her exit</div>
+          <div class="ub-exit">Files on behalf of her neighbourhood. When the app fails one issue, she stops for all of them. Her dropout removes a cluster, not just one user.</div>
         </div>
       </div>
 
@@ -666,20 +904,61 @@
       <h3>Flow 01: Report</h3>
       <p>Open camera or pull from gallery. AI runs a duplicate check against open tickets within a 200m radius. If it's a duplicate, you're offered to add evidence to the existing report rather than file a new one. One path in. No friction.</p>
 
-      <div class="img-block tall">
-        <div class="img-placeholder">
-          <div class="img-title">Flow 01 — user flow diagram</div>
-          <div class="img-desc">Full box-and-arrow flow for reporting, including gallery path, duplicate detection branch, and edge cases</div>
+      <div class="mermaid-wrap">
+        <span class="mermaid-diagram-label">Flow 01 — Report an Issue</span>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#D6EAF8', 'primaryTextColor': '#1B4F72', 'primaryBorderColor': '#2874A6', 'lineColor': '#9A9A9A', 'fontFamily': 'Montserrat, sans-serif', 'fontSize': '13px'}}}%%
+flowchart TD
+  classDef ua fill:#D5F5E3,stroke:#1A7A4A,color:#1A7A4A
+  classDef sa fill:#D6EAF8,stroke:#1B4F72,color:#1B4F72
+  classDef dec fill:#FEF9E7,stroke:#CA6F1E,color:#7E5109
+  classDef suc fill:#1B4F72,stroke:#1B4F72,color:white
+  classDef err fill:#FADBD8,stroke:#C0392B,color:#922B21
+
+  A([Open App]):::ua --> B[Tap Report an Issue]:::ua
+  B --> C{Camera or Gallery?}:::dec
+  C -->|Camera| D[Capture Photo]:::ua
+  C -->|Gallery| E[Choose from Gallery]:::ua
+  E --> F{Valid location + timestamp?}:::dec
+  F -->|No| G[Reject — request valid evidence]:::err
+  F -->|Yes| D
+  D --> H[AI: detect category + auto-locate]:::sa
+  H --> I{Existing issue nearby?}:::dec
+  I -->|No| J[Add details + Review]:::ua
+  I -->|Yes| K{Same issue?}:::dec
+  K -->|Yes| L[Add evidence to existing ticket]:::ua
+  K -->|No| J
+  J --> M[Submit]:::ua
+  M --> N([Ticket created — Confirmation sent]):::suc
+  L --> N
         </div>
       </div>
 
       <h3>Flow 02: Track</h3>
       <p>Pull up your open ticket. If it's overdue, a single tap escalates. No form, no rewrite. The escalation carries the original submission timestamp automatically. The delay is documented without the citizen having to argue it.</p>
 
-      <div class="img-block medium">
-        <div class="img-placeholder">
-          <div class="img-title">Flow 02 — tracking flow diagram</div>
-          <div class="img-desc">My Issues → Ticket Detail → Status Timeline → Overdue branch → Escalation and Resolution paths</div>
+      <div class="mermaid-wrap">
+        <span class="mermaid-diagram-label">Flow 02 — Track an Issue</span>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#D6EAF8', 'primaryTextColor': '#1B4F72', 'primaryBorderColor': '#2874A6', 'lineColor': '#9A9A9A', 'fontFamily': 'Montserrat, sans-serif', 'fontSize': '13px'}}}%%
+flowchart TD
+  classDef ua fill:#D5F5E3,stroke:#1A7A4A,color:#1A7A4A
+  classDef sa fill:#D6EAF8,stroke:#1B4F72,color:#1B4F72
+  classDef dec fill:#FEF9E7,stroke:#CA6F1E,color:#7E5109
+  classDef suc fill:#1B4F72,stroke:#1B4F72,color:white
+  classDef err fill:#FADBD8,stroke:#C0392B,color:#922B21
+
+  A([My Issues]):::ua --> B[Select Ticket]:::ua
+  B --> C[View Status + Timeline]:::sa
+  C --> D{Issue progressing?}:::dec
+  D -->|Yes| E([Continue tracking]):::suc
+  D -->|No — overdue| F[Overdue / Stuck]:::err
+  F --> G[Escalate]:::ua
+  F --> H[Contact Support]:::ua
+  G --> I[Continue tracking]:::sa
+  H --> I
+  I --> J[Official marks Resolved]:::sa
+  J --> K([Triggers Verify Resolution]):::suc
         </div>
       </div>
 
@@ -687,10 +966,29 @@
       <p>Push notification. View the official's closure note. Three-tap response: verified, partial, unresolved. Photo evidence optional for verified, required for disputed.</p>
       <p>No response in 72 hours triggers a reminder. 48 hours after that, it auto-closes. The citizen can reopen within 7 days. That window is the accountability lever.</p>
 
-      <div class="img-block tall">
-        <div class="img-placeholder">
-          <div class="img-title">Flow 03 — verify resolution flow diagram</div>
-          <div class="img-desc">Three-way branch: Approve / Partial / Still Unresolved, including non-response handling and auto-close logic</div>
+      <div class="mermaid-wrap">
+        <span class="mermaid-diagram-label">Flow 03 — Verify Resolution</span>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#D6EAF8', 'primaryTextColor': '#1B4F72', 'primaryBorderColor': '#2874A6', 'lineColor': '#9A9A9A', 'fontFamily': 'Montserrat, sans-serif', 'fontSize': '13px'}}}%%
+flowchart TD
+  classDef ua fill:#D5F5E3,stroke:#1A7A4A,color:#1A7A4A
+  classDef sa fill:#D6EAF8,stroke:#1B4F72,color:#1B4F72
+  classDef dec fill:#FEF9E7,stroke:#CA6F1E,color:#7E5109
+  classDef suc fill:#1B4F72,stroke:#1B4F72,color:white
+  classDef err fill:#FADBD8,stroke:#C0392B,color:#922B21
+  classDef warn fill:#FAF3E0,stroke:#F39C12,color:#7E5109
+
+  A([Official marks Resolved]) --> B[Push notification sent]:::sa
+  B --> C[View closure note + evidence]:::ua
+  C --> D{Actually fixed?}:::dec
+  D -->|Yes| E[Approve resolution]:::ua
+  D -->|Partial| F[Select what remains]:::ua
+  D -->|No — still broken| G[Add remark + new evidence]:::ua
+  E --> E1([Ticket closed — loop complete]):::suc
+  F --> F1[Submit feedback]:::ua
+  F1 --> F2([Ticket reopened — back to tracking]):::warn
+  G --> G1[Submit dispute]:::ua
+  G1 --> G2([Re-escalated — authority notified]):::err
         </div>
       </div>
     </section>
@@ -901,6 +1199,22 @@
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#D6EAF8',
+      primaryTextColor: '#1B4F72',
+      primaryBorderColor: '#2874A6',
+      lineColor: '#9A9A9A',
+      fontFamily: 'Montserrat, sans-serif',
+      fontSize: '13px'
+    }
+  });
 </script>
 
 </body>
