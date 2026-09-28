@@ -123,9 +123,18 @@
   .img-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   /* PULL QUOTE */
-  .pull-quote { border-left: 3px solid var(--black); padding: 20px 0 20px 24px; margin: 32px 0; }
-  .pull-quote p { font-size: 20px; font-weight: 500; line-height: 1.5; color: var(--black); font-style: italic; margin: 0 0 10px; max-width: 560px; }
-  .pull-quote cite { font-size: 13px; color: var(--tertiary); font-style: normal; font-weight: 500; }
+  .pull-quote { position: relative; background: var(--bg-alt); border-radius: 16px; padding: 48px 40px 36px; margin: 40px 0; overflow: hidden; }
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Barlow', Georgia, serif;
+    font-size: 120px; font-weight: 800;
+    line-height: 0.75;
+    color: var(--black); opacity: 0.07;
+    position: absolute; top: 20px; left: 28px;
+    pointer-events: none; user-select: none;
+  }
+  .pull-quote p { font-size: 1.15rem; font-weight: 500; line-height: 1.65; color: var(--black); font-style: normal; margin: 0 0 20px; max-width: 580px; position: relative; }
+  .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tertiary); font-style: normal; display: block; }
 
   /* INSIGHT CARDS */
   .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 32px 0; }
@@ -154,19 +163,24 @@
   .persona-pain strong { color: var(--black); font-weight: 600; }
 
   /* DECISION CARD */
-  .decision-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 32px 0; }
-  .decision-header { padding: 20px 24px; border-bottom: 1px solid var(--border); }
-  .decision-header span { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tertiary); }
-  .decision-header h4 { font-size: 16px; font-weight: 600; color: var(--black); margin-top: 4px; }
+  .decision-card { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 32px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .decision-header { padding: 20px 24px; border-bottom: 1px solid var(--border); background: var(--bg); display: flex; align-items: flex-start; gap: 16px; }
+  .decision-num-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tertiary); background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; flex-shrink: 0; margin-top: 2px; }
+  .decision-header h4 { font-size: 16px; font-weight: 600; color: var(--black); line-height: 1.4; }
   .decision-options { display: grid; grid-template-columns: 1fr 1fr; }
-  .decision-option { padding: 20px 24px; }
-  .decision-option:first-child { border-right: 1px solid var(--border); }
-  .decision-option-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
-  .decision-option-label.chosen { color: var(--accent); }
-  .decision-option-label.rejected { color: var(--tertiary); }
-  .decision-option h5 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
-  .decision-option p { font-size: 13px; color: var(--secondary); margin: 0; line-height: 1.5; }
-  .decision-rationale { padding: 16px 24px; background: var(--bg-alt); border-top: 1px solid var(--border); font-size: 13px; color: var(--secondary); line-height: 1.5; }
+  .decision-option { padding: 24px; }
+  .decision-option.chosen-col { background: #F0F7FF; border-right: 1px solid #D0E6FF; }
+  .decision-option.rejected-col { background: #FAFAFA; }
+  .decision-option-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; padding: 4px 10px; border-radius: 100px; }
+  .decision-option-label.chosen { color: #1A5276; background: #D6EAF8; }
+  .decision-option-label.chosen::before { content: '✓'; font-size: 10px; }
+  .decision-option-label.rejected { color: var(--tertiary); background: #EBEBEB; }
+  .decision-option-label.rejected::before { content: '✕'; font-size: 10px; }
+  .decision-option h5 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .decision-option.rejected-col h5 { color: var(--secondary); }
+  .decision-option p { font-size: 13px; color: var(--secondary); margin: 0; line-height: 1.6; }
+  .decision-option.rejected-col p { color: var(--tertiary); }
+  .decision-rationale { padding: 16px 24px; background: var(--bg-alt); border-top: 1px solid var(--border); font-size: 13px; color: var(--secondary); line-height: 1.55; }
   .decision-rationale strong { color: var(--black); }
 
   /* ASSUMPTION LIST */
@@ -204,12 +218,22 @@
   .learning-item p { font-size: 15px; color: var(--secondary); margin: 0; max-width: 580px; }
 
   /* COMPETITOR TABLE */
-  .comp-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
-  .comp-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tertiary); padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .comp-table td { padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--secondary); vertical-align: top; line-height: 1.5; }
-  .comp-table td:first-child { font-weight: 600; color: var(--black); padding-right: 24px; width: 140px; }
-  .comp-table .good { color: #2E7D32; }
-  .comp-table .bad { color: #D32F2F; }
+  .comp-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .comp-table thead tr { border-bottom: 1.5px solid var(--border); }
+  .comp-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tertiary); padding: 10px 16px 10px 0; }
+  .comp-table th:first-child { padding-left: 0; width: 150px; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  .comp-table tbody tr:last-child { border-bottom: none; }
+  .comp-table tbody tr:hover { background: var(--bg-alt); }
+  .comp-table td { padding: 18px 16px 18px 0; color: var(--secondary); vertical-align: top; line-height: 1.55; }
+  .comp-table td:first-child { font-weight: 700; color: var(--black); padding-right: 20px; font-size: 13px; padding-left: 0; }
+  .comp-table .good { color: var(--secondary); }
+  .comp-table .bad { color: var(--secondary); }
+  .comp-table .bad::before {
+    content: '';
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: #E53E3E; margin-right: 8px; margin-bottom: 1px; vertical-align: middle; flex-shrink: 0;
+  }
 
   /* FLOW STEPS */
   .flow-step { display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-start; }
@@ -521,17 +545,17 @@
 
       <div class="decision-card">
         <div class="decision-header">
-          <span>Decision 01</span>
+          <span class="decision-num-badge">Decision 01</span>
           <h4>Camera-first or category-first as the reporting entry point?</h4>
         </div>
         <div class="decision-options">
-          <div class="decision-option">
-            <div class="decision-option-label chosen">Chosen: dual path</div>
+          <div class="decision-option chosen-col">
+            <div class="decision-option-label chosen">Chosen</div>
             <h5>Camera dominant, category available</h5>
             <p>Camera-first at 80% visual weight. Category grid below it. Both paths converge at the same review screen.</p>
           </div>
-          <div class="decision-option">
-            <div class="decision-option-label rejected">Rejected: camera only</div>
+          <div class="decision-option rejected-col">
+            <div class="decision-option-label rejected">Rejected</div>
             <h5>Single entry point for everyone</h5>
             <p>Cleaner on paper. Forces a new mental model on users already trained by Swachhata's category-first pattern, which has 8.4M downloads.</p>
           </div>
@@ -543,16 +567,16 @@
 
       <div class="decision-card">
         <div class="decision-header">
-          <span>Decision 02</span>
+          <span class="decision-num-badge">Decision 02</span>
           <h4>Map or list as the home screen's primary view?</h4>
         </div>
         <div class="decision-options">
-          <div class="decision-option">
+          <div class="decision-option chosen-col">
             <div class="decision-option-label chosen">Chosen</div>
             <h5>Map fills the top half, list pulls up below</h5>
             <p>Heatmap shows issue density. Bottom sheet slides up with the recent activity list. Toggle between Active and Resolved views.</p>
           </div>
-          <div class="decision-option">
+          <div class="decision-option rejected-col">
             <div class="decision-option-label rejected">Rejected</div>
             <h5>Pure list, map as secondary</h5>
             <p>Safer technically. Misses the product's core value: situational awareness. A list doesn't tell you your street has 12 open complaints.</p>
@@ -565,16 +589,16 @@
 
       <div class="decision-card">
         <div class="decision-header">
-          <span>Decision 03</span>
+          <span class="decision-num-badge">Decision 03</span>
           <h4>Show only active issues, or resolved ones too?</h4>
         </div>
         <div class="decision-options">
-          <div class="decision-option">
+          <div class="decision-option chosen-col">
             <div class="decision-option-label chosen">Chosen</div>
             <h5>Toggle between Active and Recently Resolved</h5>
             <p>Two map states. Active uses the red/yellow heat gradient. Resolved uses green. Before/after evidence visible on tap.</p>
           </div>
-          <div class="decision-option">
+          <div class="decision-option rejected-col">
             <div class="decision-option-label rejected">Rejected</div>
             <h5>Active issues only</h5>
             <p>Standard for civic apps. Creates a complaint graveyard. Every screen reinforces what's wrong. No positive signal reaches the user.</p>
@@ -587,16 +611,16 @@
 
       <div class="decision-card">
         <div class="decision-header">
-          <span>Decision 04</span>
+          <span class="decision-num-badge">Decision 04</span>
           <h4>What happens when the issue already has an open ticket?</h4>
         </div>
         <div class="decision-options">
-          <div class="decision-option">
+          <div class="decision-option chosen-col">
             <div class="decision-option-label chosen">Chosen</div>
             <h5>Show the ticket, offer to add evidence</h5>
             <p>AI runs a duplicate check against open tickets within a 200m radius. If it's a duplicate, you're offered to add evidence to the existing report rather than file a new one.</p>
           </div>
-          <div class="decision-option">
+          <div class="decision-option rejected-col">
             <div class="decision-option-label rejected">Rejected</div>
             <h5>Always create a new ticket</h5>
             <p>Simpler to implement. Generates duplicate data, splits community weight, reduces the pressure that makes officials act.</p>
@@ -609,16 +633,16 @@
 
       <div class="decision-card">
         <div class="decision-header">
-          <span>Decision 05</span>
+          <span class="decision-num-badge">Decision 05</span>
           <h4>Who gets to decide if an issue is actually resolved?</h4>
         </div>
         <div class="decision-options">
-          <div class="decision-option">
+          <div class="decision-option chosen-col">
             <div class="decision-option-label chosen">Chosen</div>
             <h5>Three-outcome citizen confirmation</h5>
             <p>Verified: fix confirmed with photo evidence. Loop closes cleanly. Partially Resolved: ticket stays open, routed back into the queue. Unresolved: ticket re-escalates, now with the official's closure timestamp as documented evidence.</p>
           </div>
-          <div class="decision-option">
+          <div class="decision-option rejected-col">
             <div class="decision-option-label rejected">Rejected</div>
             <h5>Officer resolution is final</h5>
             <p>The current model on every existing app. Fast to implement. The root cause of the trust collapse the brief is trying to fix.</p>
