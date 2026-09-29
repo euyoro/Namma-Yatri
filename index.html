@@ -147,6 +147,24 @@
     font-weight: 500;
   }
   .footer a:hover { color: var(--accent); }
+  #ascii-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  #ascii-bg pre {
+    position: absolute;
+    white-space: pre;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    line-height: 1.15;
+    color: var(--text);
+    opacity: 0.06;
+    user-select: none;
+  }
+  .container { position: relative; z-index: 1; }
   @media (max-width: 480px) {
     h1 { font-size: 28px; }
     .subtitle { font-size: 16px; margin-bottom: 36px; }
@@ -155,6 +173,7 @@
 </style>
 </head>
 <body>
+<div id="ascii-bg"></div>
 <div class="container">
   <p class="tag">UX Case Study</p>
   <h1>Namma Yatri Civic Reporting</h1>
@@ -194,5 +213,244 @@
 
   <p class="footer">By <a href="https://www.linkedin.com/in/shreyodebnath/">Shreyo Debnath</a></p>
 </div>
+<script>
+(function() {
+  const frames = [
+    [
+      "                 ,--,",
+      "              .--'  o\\",
+      "     ____    /  ___  |",
+      "    / _  \\  |  /   \\ |",
+      "   | (_)  | | |     ||",
+      "    \\__,_/  |  \\___/ |",
+      "      |     \\        /",
+      "      |      '------'",
+      "     /|\\      |    |",
+      "    / | \\     |    |",
+      "   /  |  \\    |    |",
+      "      |      /|    |\\",
+      "      |     / |    | \\",
+      "            '  '   '  '"
+    ],
+    [
+      "                  ,-~-,",
+      "              ,--'  o \\",
+      "     ____    /   ___  |",
+      "    / _  \\  |   /   \\ |",
+      "   | (_)  | |  |     ||",
+      "    \\__,_/  |   \\___/ |",
+      "      |      \\        /",
+      "      |       '------'",
+      "     /|\\       |   |",
+      "    / | \\     /     \\",
+      "   '  |  '  /       \\",
+      "      |    '         '",
+      "      |",
+      "      '"
+    ],
+    [
+      "                   ,--,",
+      "               .--' o \\",
+      "     _____    /  ___   |",
+      "    /  _  \\  |  /   \\  |",
+      "   |  (_)  | | |     | |",
+      "    \\___,_/  |  \\___/  |",
+      "      |       \\        /",
+      "      |        '------'",
+      "      |         |    |",
+      "     /|\\       /      \\",
+      "    ' | '    ,'        `.",
+      "      |    .'            '",
+      "      |   '",
+      "      '"
+    ],
+    [
+      "                ,~~,",
+      "             .~'  o \\",
+      "     ____   /  ___   |",
+      "    / _  \\ |  /   \\  |",
+      "   | (_)  || |     | |",
+      "    \\__,_/ |  \\___/  |",
+      "      |     \\        /",
+      "      |      '------'",
+      "     /|\\      |    |",
+      "    ' | '     |    |",
+      "      |      /|    |\\",
+      "      |    ,'  |  |  `.",
+      "      |   '    '  '    '",
+      "      '"
+    ],
+    [
+      "               ,--,",
+      "            ,-'  o \\",
+      "    ____   /  ___   \\",
+      "   / _  \\ |  /   \\   |",
+      "  | (_)  || |     |  |",
+      "   \\__,_/ |  \\___/   |",
+      "     |     \\         /",
+      "     |      '-------'",
+      "    /|\\      |     |",
+      "   / | \\    /       \\",
+      "  /  |  \\  |         |",
+      "     |     '         '",
+      "     |",
+      "     '"
+    ],
+    [
+      "                ,--,",
+      "             ,-'  o \\",
+      "     ____   / ___    \\",
+      "    / _  \\ | /   \\    |",
+      "   | (_)  |/ |    |   |",
+      "    \\__,_/|  \\___/    |",
+      "      |    \\          /",
+      "      |     '--------'",
+      "     /|\\     \\      /",
+      "    / | \\     \\    /",
+      "   /  |  \\     \\  /",
+      "      |        \\/ ",
+      "      |        /\\",
+      "             ,'  '."
+    ]
+  ];
+
+  const horses = [
+    [
+      "        >>\\\\.",
+      "       /_  )`.___..--\" \"--.._ ",
+      "      //  ,'    \\    \\       `.",
+      "      \\)_/ |     \\    \\  . .  |",
+      "           |      )   /\\/  \\  |",
+      "           |     /   |  \\   | |",
+      "           |    /    |   \\  | |",
+      "          /   ,'      \\-'  '  |",
+      "         /  ,'         `.___.-'",
+      "        |  (                   ",
+      "         \\  `-.    ___",
+      "          `.   `--\"   `-.  ___",
+      "            `-._       _.-\"   `.",
+      "             |  ``---''  |-..__ |",
+      "             |   |  |   |     ``'",
+      "             '   |  '   |",
+      "              \\  |   \\  |",
+      "               | |    | |",
+      "               | |    | |",
+      "              _j_L   _j_L"
+    ],
+    [
+      "        >>\\\\.",
+      "       /_  )`.___..--\" \"--.._ ",
+      "      //  ,'    \\    \\       `.",
+      "      \\)_/ |     \\    \\  . .  |",
+      "           |      )   /\\/  \\  |",
+      "           |     /   |  \\   | |",
+      "           |    /    |   \\  | |",
+      "          /   ,'      \\-'  '  |",
+      "         /  ,'         `.___.-'",
+      "        |  (                   ",
+      "         \\  `-.    ___",
+      "          `.   `--\"   `-.  ___",
+      "            `-._       _.-\"   `.",
+      "             |  ``---''  |-..__ |",
+      "             |   |  |   |     ``'",
+      "              \\  '   \\  '",
+      "               \\ |    \\ |",
+      "                ||     ||",
+      "               _||    _||",
+      "              (__j   (__j"
+    ],
+    [
+      "        >>\\\\.",
+      "       /_  )`.___..--\" \"--.._ ",
+      "      //  ,'    \\    \\       `.",
+      "      \\)_/ |     \\    \\  . .  |",
+      "           |      )   /\\/  \\  |",
+      "           |     /   |  \\   | |",
+      "           |    /    |   \\  | |",
+      "          /   ,'      \\-'  '  |",
+      "         /  ,'         `.___.-'",
+      "        |  (                   ",
+      "         \\  `-.    ___",
+      "          `.   `--\"   `-.  ___",
+      "            `-._       _.-\"   `.",
+      "             |  ``---''  |-..__ |",
+      "             |   |  |   |     ``'",
+      "             '    \\ '   \\",
+      "             |     \\|    \\",
+      "             |      |    |",
+      "             |      |    |",
+      "            _j     _j    '"
+    ],
+    [
+      "        >>\\\\.",
+      "       /_  )`.___..--\" \"--.._ ",
+      "      //  ,'    \\    \\       `.",
+      "      \\)_/ |     \\    \\  . .  |",
+      "           |      )   /\\/  \\  |",
+      "           |     /   |  \\   | |",
+      "           |    /    |   \\  | |",
+      "          /   ,'      \\-'  '  |",
+      "         /  ,'         `.___.-'",
+      "        |  (                   ",
+      "         \\  `-.    ___",
+      "          `.   `--\"   `-.  ___",
+      "            `-._       _.-\"   `.",
+      "             |  ``---''  |-..__ |",
+      "              \\  |  \\   |     ``'",
+      "               \\ '   |  '",
+      "                \\|   |  |",
+      "                 |    \\ |",
+      "                 |     \\|",
+      "                _j     _j"
+    ]
+  ];
+
+  const bg = document.getElementById('ascii-bg');
+  const count = 5;
+  const instances = [];
+
+  for (let i = 0; i < count; i++) {
+    const pre = document.createElement('pre');
+    pre.style.left = (Math.random() * window.innerWidth) + 'px';
+    pre.style.top = (Math.random() * window.innerHeight) + 'px';
+    pre.style.opacity = (0.03 + Math.random() * 0.05).toFixed(3);
+    bg.appendChild(pre);
+    instances.push({
+      el: pre,
+      x: parseFloat(pre.style.left),
+      y: parseFloat(pre.style.top),
+      speed: 0.3 + Math.random() * 0.6,
+      frame: Math.floor(Math.random() * horses.length),
+      tick: 0,
+      flipRate: 8 + Math.floor(Math.random() * 6)
+    });
+  }
+
+  function animate() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    instances.forEach(inst => {
+      inst.x -= inst.speed;
+      if (inst.x < -400) {
+        inst.x = w + 50;
+        inst.y = Math.random() * (h - 200);
+      }
+      inst.tick++;
+      if (inst.tick % inst.flipRate === 0) {
+        inst.frame = (inst.frame + 1) % horses.length;
+      }
+      inst.el.style.transform = 'translate(' + inst.x + 'px,' + inst.y + 'px)';
+      inst.el.textContent = horses[inst.frame].join('\n');
+    });
+    requestAnimationFrame(animate);
+  }
+
+  instances.forEach(inst => {
+    inst.el.style.left = '0';
+    inst.el.style.top = '0';
+  });
+  animate();
+})();
+</script>
 </body>
 </html>
