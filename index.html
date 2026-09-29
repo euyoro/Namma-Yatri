@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UX Case Study : Civic App for Reporting Public Infrastructure · Shreyo Debnath</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@400;500;600;700&family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
 <style>
   :root {
@@ -23,11 +23,11 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -585,6 +585,92 @@
     .img-grid.two, .img-grid.three { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 16px; align-items: flex-start; }
   }
+
+  /* ===== MEDIUM-STYLE SERIF TYPOGRAPHY ===== */
+  .hero h1 { font-family: 'Source Serif 4', Charter, Georgia, serif; }
+  .hero-subtitle { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 19px; line-height: 1.6; }
+  .section h2 { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 32px; line-height: 1.22; letter-spacing: -0.016em; }
+  .section h3 { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .section > p { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 20px; line-height: 1.58; color: var(--text); }
+  .pull-quote p { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 1.2rem; line-height: 1.6; }
+  .pull-quote::before { font-family: 'Source Serif 4', Georgia, serif; }
+  .highlight-box p { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 19px; line-height: 1.6; }
+  .learning-item p { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 18px; line-height: 1.58; }
+  .ib-text { font-family: 'Source Serif 4', Charter, Georgia, serif; }
+  .nav-name { font-family: 'Inter', -apple-system, sans-serif; }
+  .nav-links a { font-family: 'Inter', -apple-system, sans-serif; }
+  .section-tag { font-family: 'Inter', sans-serif; }
+  .hero-stat-label, .hero-stat-value, .hero-meta, .company-pill { font-family: 'Inter', sans-serif; }
+  .pull-quote cite { font-family: 'Inter', sans-serif; }
+  .img-caption { font-family: 'Inter', sans-serif; }
+  footer, footer p, footer a { font-family: 'Inter', sans-serif; }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox-trigger { cursor: zoom-in; transition: opacity 0.15s; }
+  .lightbox-trigger:hover { opacity: 0.88; }
+  .lightbox-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.9);
+    display: none; align-items: center; justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+    opacity: 0; transition: opacity 0.25s ease;
+  }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay.visible { opacity: 1; }
+  .lightbox-content {
+    max-width: 92vw; max-height: 88vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lightbox-content img {
+    max-width: 90vw; max-height: 85vh;
+    object-fit: contain; border-radius: 8px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+  }
+  .lightbox-content > div {
+    background: white; padding: 32px; border-radius: 12px;
+    max-width: 90vw; max-height: 85vh; overflow: auto;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.5); cursor: default;
+  }
+  .lightbox-close {
+    position: fixed; top: 20px; right: 24px;
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.12); backdrop-filter: blur(4px);
+    border: none; border-radius: 50%;
+    color: white; font-size: 22px; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; z-index: 1001;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+  /* ===== SIDE DOT NAVIGATION ===== */
+  .dot-nav {
+    position: fixed; left: 28px; top: 50%; transform: translateY(-50%);
+    z-index: 50; display: flex; flex-direction: column; gap: 0;
+  }
+  .dot-nav a {
+    display: flex; align-items: center; gap: 14px;
+    padding: 7px 0; text-decoration: none;
+  }
+  .dot-nav .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--tertiary); opacity: 0.25;
+    transition: all 0.3s ease; flex-shrink: 0;
+  }
+  .dot-nav a.active .dot {
+    opacity: 1; background: var(--black);
+    width: 8px; height: 8px;
+  }
+  .dot-nav a:hover .dot { opacity: 0.55; }
+  .dot-nav .dot-label {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+    color: var(--secondary); opacity: 0; transform: translateX(-6px);
+    transition: all 0.2s ease; white-space: nowrap; pointer-events: none;
+  }
+  .dot-nav a:hover .dot-label { opacity: 1; transform: translateX(0); }
+  .dot-nav a.active .dot-label { opacity: 1; transform: translateX(0); color: var(--black); font-weight: 600; }
+  @media (max-width: 1100px) { .dot-nav { display: none; } }
 </style>
 </head>
 <body>
@@ -1429,21 +1515,10 @@ flowchart TD
   <a href="mailto:shreyodebnath@gmail.com">shreyodebnath@gmail.com</a>
 </footer>
 
-<script>
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.sidebar-nav a');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + entry.target.id) link.classList.add('active');
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  sections.forEach(s => observer.observe(s));
-</script>
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+  <div class="lightbox-content"></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
@@ -1455,10 +1530,101 @@ flowchart TD
       primaryTextColor: '#1B4F72',
       primaryBorderColor: '#2874A6',
       lineColor: '#9A9A9A',
-      fontFamily: 'Montserrat, sans-serif',
+      fontFamily: 'Inter, sans-serif',
       fontSize: '13px'
     }
   });
+</script>
+
+<script>
+// Dot navigation
+(function() {
+  var sections = document.querySelectorAll('section[id]');
+  var labels = {
+    brief: 'Getting started', problem: 'The problem', process: 'Process',
+    'existing-apps': 'Research', 'data-structure': 'The gap', users: 'Users',
+    reframe: 'The reframe', decisions: 'The solution', 'design-system': 'Visual system',
+    flows: 'Three flows', screens: 'The screens', tradeoffs: 'Scope',
+    metrics: 'Metrics', next: "What's next"
+  };
+  var nav = document.createElement('nav');
+  nav.className = 'dot-nav';
+  nav.setAttribute('aria-label', 'Section navigation');
+  sections.forEach(function(s) {
+    var a = document.createElement('a');
+    a.href = '#' + s.id;
+    a.innerHTML = '<span class="dot"></span><span class="dot-label">' + (labels[s.id] || s.id) + '</span>';
+    nav.appendChild(a);
+  });
+  document.body.appendChild(nav);
+
+  var dotLinks = nav.querySelectorAll('a');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        dotLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(function(s) { obs.observe(s); });
+})();
+
+// Lightbox
+(function() {
+  var overlay = document.getElementById('lightbox');
+  var content = overlay.querySelector('.lightbox-content');
+  var closeBtn = overlay.querySelector('.lightbox-close');
+
+  var targets = document.querySelectorAll(
+    '.persona-fig img, .hero-cover img, .mermaid-wrap, .ds-bento, .comp-visual, .insight-bento, .metric-grid'
+  );
+
+  targets.forEach(function(el) {
+    el.classList.add('lightbox-trigger');
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      content.innerHTML = '';
+
+      if (el.tagName === 'IMG') {
+        var img = document.createElement('img');
+        img.src = el.src;
+        img.alt = el.alt || '';
+        content.appendChild(img);
+      } else {
+        var clone = el.cloneNode(true);
+        clone.classList.remove('lightbox-trigger');
+        var wrapper = document.createElement('div');
+        wrapper.appendChild(clone);
+        content.appendChild(wrapper);
+      }
+
+      overlay.classList.add('active');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { overlay.classList.add('visible'); });
+      });
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    overlay.classList.remove('visible');
+    setTimeout(function() {
+      overlay.classList.remove('active');
+      content.innerHTML = '';
+      document.body.style.overflow = '';
+    }, 250);
+  }
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay || e.target === content) closeLightbox();
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
+  });
+})();
 </script>
 
 </body>
