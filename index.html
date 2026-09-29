@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Namma Yatri — Civic Reporting Case Study</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
+  :root, :root[data-theme="light"] {
     --bg: #FAFAF8;
     --text: #1A1A1A;
     --sub: #6B6B6B;
@@ -14,26 +14,7 @@
     --accent: #E8654A;
     --card-bg: #FFFFFF;
     --card-hover: #F6F6F4;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #141414;
-      --text: #E8E8E4;
-      --sub: #9A9A9A;
-      --border: #2A2A2A;
-      --accent: #E8654A;
-      --card-bg: #1C1C1C;
-      --card-hover: #222222;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #141414;
-    --text: #E8E8E4;
-    --sub: #9A9A9A;
-    --border: #2A2A2A;
-    --accent: #E8654A;
-    --card-bg: #1C1C1C;
-    --card-hover: #222222;
+    --horse: #C8C8C0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -46,11 +27,32 @@
     justify-content: center;
     padding: 24px;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  #ascii-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  #ascii-bg pre {
+    position: absolute;
+    white-space: pre;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.1;
+    color: var(--horse);
+    user-select: none;
+    left: 0;
+    top: 0;
   }
   .container {
     max-width: 520px;
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
   .tag {
     font-size: 11px;
@@ -91,6 +93,7 @@
     text-decoration: none;
     color: var(--text);
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    backdrop-filter: blur(8px);
   }
   .card:hover {
     background: var(--card-hover);
@@ -147,28 +150,11 @@
     font-weight: 500;
   }
   .footer a:hover { color: var(--accent); }
-  #ascii-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  #ascii-bg pre {
-    position: absolute;
-    white-space: pre;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    line-height: 1.15;
-    color: var(--text);
-    opacity: 0.06;
-    user-select: none;
-  }
-  .container { position: relative; z-index: 1; }
   @media (max-width: 480px) {
     h1 { font-size: 28px; }
     .subtitle { font-size: 16px; margin-bottom: 36px; }
     .card { padding: 20px; gap: 16px; }
+    #ascii-bg pre { font-size: 10px; }
   }
 </style>
 </head>
@@ -215,240 +201,148 @@
 </div>
 <script>
 (function() {
-  const frames = [
-    [
-      "                 ,--,",
-      "              .--'  o\\",
-      "     ____    /  ___  |",
-      "    / _  \\  |  /   \\ |",
-      "   | (_)  | | |     ||",
-      "    \\__,_/  |  \\___/ |",
-      "      |     \\        /",
-      "      |      '------'",
-      "     /|\\      |    |",
-      "    / | \\     |    |",
-      "   /  |  \\    |    |",
-      "      |      /|    |\\",
-      "      |     / |    | \\",
-      "            '  '   '  '"
-    ],
-    [
-      "                  ,-~-,",
-      "              ,--'  o \\",
-      "     ____    /   ___  |",
-      "    / _  \\  |   /   \\ |",
-      "   | (_)  | |  |     ||",
-      "    \\__,_/  |   \\___/ |",
-      "      |      \\        /",
-      "      |       '------'",
-      "     /|\\       |   |",
-      "    / | \\     /     \\",
-      "   '  |  '  /       \\",
-      "      |    '         '",
-      "      |",
-      "      '"
-    ],
-    [
-      "                   ,--,",
-      "               .--' o \\",
-      "     _____    /  ___   |",
-      "    /  _  \\  |  /   \\  |",
-      "   |  (_)  | | |     | |",
-      "    \\___,_/  |  \\___/  |",
-      "      |       \\        /",
-      "      |        '------'",
-      "      |         |    |",
-      "     /|\\       /      \\",
-      "    ' | '    ,'        `.",
-      "      |    .'            '",
-      "      |   '",
-      "      '"
-    ],
-    [
-      "                ,~~,",
-      "             .~'  o \\",
-      "     ____   /  ___   |",
-      "    / _  \\ |  /   \\  |",
-      "   | (_)  || |     | |",
-      "    \\__,_/ |  \\___/  |",
-      "      |     \\        /",
-      "      |      '------'",
-      "     /|\\      |    |",
-      "    ' | '     |    |",
-      "      |      /|    |\\",
-      "      |    ,'  |  |  `.",
-      "      |   '    '  '    '",
-      "      '"
-    ],
-    [
-      "               ,--,",
-      "            ,-'  o \\",
-      "    ____   /  ___   \\",
-      "   / _  \\ |  /   \\   |",
-      "  | (_)  || |     |  |",
-      "   \\__,_/ |  \\___/   |",
-      "     |     \\         /",
-      "     |      '-------'",
-      "    /|\\      |     |",
-      "   / | \\    /       \\",
-      "  /  |  \\  |         |",
-      "     |     '         '",
-      "     |",
-      "     '"
-    ],
-    [
-      "                ,--,",
-      "             ,-'  o \\",
-      "     ____   / ___    \\",
-      "    / _  \\ | /   \\    |",
-      "   | (_)  |/ |    |   |",
-      "    \\__,_/|  \\___/    |",
-      "      |    \\          /",
-      "      |     '--------'",
-      "     /|\\     \\      /",
-      "    / | \\     \\    /",
-      "   /  |  \\     \\  /",
-      "      |        \\/ ",
-      "      |        /\\",
-      "             ,'  '."
-    ]
+  var f0 = [
+    "                                       ,~~.",
+    "                                      (  6 )-_,",
+    "                                 (\\___ ,,__/  )  ~-.",
+    "                                  \\   .  ) )  /  \\   )",
+    "                                   `.__ /\\___,)  7  /",
+    "                                       \\  /, )  ( _/",
+    "                                        `--' `---'  ",
+    "                                     _/         \\_ ",
+    "                                    / |    / \\    |\\",
+    "                                   /  |   /   \\   | \\",
+    "                                  J   |  J     L  |  L",
+    "                                  F   J  F     |  J  |",
+    "                                 J     \\/ \\    F   \\/",
+    "                                 F               L",
+    "                                /                 \\"
+  ];
+  var f1 = [
+    "                                       ,-~-.",
+    "                                      (  6 )-_,",
+    "                                 (\\___ ,,__/  )  ~-.",
+    "                                  \\   .  ) )  /  \\   )",
+    "                                   `.__ /\\___,)  7  /",
+    "                                       \\  /, )  ( _/",
+    "                                        `--' `---'  ",
+    "                                     _/         \\_ ",
+    "                                    / |           |\\",
+    "                                   /  |           | \\",
+    "                                  J    \\         /   L",
+    "                                  F     \\       /    |",
+    "                                 J       \\     /      \\",
+    "                                 F        \\   /        L",
+    "                                /          `-'          \\"
+  ];
+  var f2 = [
+    "                                       ,--.",
+    "                                      (  6 )-_,",
+    "                                 (\\___ ,,__/  )  ~-.",
+    "                                  \\   .  ) )  /  \\   )",
+    "                                   `.__ /\\___,)  7  /",
+    "                                       \\  /, )  ( _/",
+    "                                        `--' `---'  ",
+    "                                       /       \\    ",
+    "                                      / |       |\\  ",
+    "                                     /  |       | \\ ",
+    "                                    J    \\     /   L ",
+    "                                    F     |   |    | ",
+    "                                    |     |   |    | ",
+    "                                    J    /     \\   L ",
+    "                                     \\  /       \\  / "
+  ];
+  var f3 = [
+    "                                       ,-~~.",
+    "                                      (  6 )-_,",
+    "                                 (\\___ ,,__/  )  ~-.",
+    "                                  \\   .  ) )  /  \\   )",
+    "                                   `.__ /\\___,)  7  /",
+    "                                       \\  /, )  ( _/",
+    "                                        `--' `---'  ",
+    "                                     _/         \\_ ",
+    "                                    / |    / \\    |\\",
+    "                                   /   \\  /   \\  /  \\",
+    "                                  /     \\/     \\/    |",
+    "                                  |                  |",
+    "                                  J                  L",
+    "                                   \\                / ",
+    "                                    \\              /  "
+  ];
+  var f4 = [
+    "                                        ,~~,",
+    "                                      (  6 )-_,",
+    "                                 (\\__  ,,__/  )  ~-.",
+    "                                  \\   .  ) )  / \\    )",
+    "                                   `.__ /\\___,) 7  /",
+    "                                       \\  /, )  (_/",
+    "                                        `--' `---'  ",
+    "                                     _/          \\_ ",
+    "                                    /|     /\\      |\\",
+    "                                   / |    /  \\     | \\",
+    "                                  /   \\  /    \\   /   |",
+    "                                 J     \\/      \\ /    L",
+    "                                 F               '    |",
+    "                                J                     L",
+    "                                 \\                   / "
+  ];
+  var f5 = [
+    "                                       ,-~.",
+    "                                      ( 6  )-_,",
+    "                                 (\\__  ,,__/  )  ~-.",
+    "                                  \\   . ) )   / \\    )",
+    "                                   `._ /\\___,) 7  /",
+    "                                      \\  /, )  (_/",
+    "                                       `--'`---'  ",
+    "                                      /        \\  ",
+    "                                     /|         |\\ ",
+    "                                    / |         | \\",
+    "                                   J   \\       /   L",
+    "                                   F    |     |    |",
+    "                                   |     \\   /     |",
+    "                                   J      \\ /      L",
+    "                                    \\      V      /  "
   ];
 
-  const horses = [
-    [
-      "        >>\\\\.",
-      "       /_  )`.___..--\" \"--.._ ",
-      "      //  ,'    \\    \\       `.",
-      "      \\)_/ |     \\    \\  . .  |",
-      "           |      )   /\\/  \\  |",
-      "           |     /   |  \\   | |",
-      "           |    /    |   \\  | |",
-      "          /   ,'      \\-'  '  |",
-      "         /  ,'         `.___.-'",
-      "        |  (                   ",
-      "         \\  `-.    ___",
-      "          `.   `--\"   `-.  ___",
-      "            `-._       _.-\"   `.",
-      "             |  ``---''  |-..__ |",
-      "             |   |  |   |     ``'",
-      "             '   |  '   |",
-      "              \\  |   \\  |",
-      "               | |    | |",
-      "               | |    | |",
-      "              _j_L   _j_L"
-    ],
-    [
-      "        >>\\\\.",
-      "       /_  )`.___..--\" \"--.._ ",
-      "      //  ,'    \\    \\       `.",
-      "      \\)_/ |     \\    \\  . .  |",
-      "           |      )   /\\/  \\  |",
-      "           |     /   |  \\   | |",
-      "           |    /    |   \\  | |",
-      "          /   ,'      \\-'  '  |",
-      "         /  ,'         `.___.-'",
-      "        |  (                   ",
-      "         \\  `-.    ___",
-      "          `.   `--\"   `-.  ___",
-      "            `-._       _.-\"   `.",
-      "             |  ``---''  |-..__ |",
-      "             |   |  |   |     ``'",
-      "              \\  '   \\  '",
-      "               \\ |    \\ |",
-      "                ||     ||",
-      "               _||    _||",
-      "              (__j   (__j"
-    ],
-    [
-      "        >>\\\\.",
-      "       /_  )`.___..--\" \"--.._ ",
-      "      //  ,'    \\    \\       `.",
-      "      \\)_/ |     \\    \\  . .  |",
-      "           |      )   /\\/  \\  |",
-      "           |     /   |  \\   | |",
-      "           |    /    |   \\  | |",
-      "          /   ,'      \\-'  '  |",
-      "         /  ,'         `.___.-'",
-      "        |  (                   ",
-      "         \\  `-.    ___",
-      "          `.   `--\"   `-.  ___",
-      "            `-._       _.-\"   `.",
-      "             |  ``---''  |-..__ |",
-      "             |   |  |   |     ``'",
-      "             '    \\ '   \\",
-      "             |     \\|    \\",
-      "             |      |    |",
-      "             |      |    |",
-      "            _j     _j    '"
-    ],
-    [
-      "        >>\\\\.",
-      "       /_  )`.___..--\" \"--.._ ",
-      "      //  ,'    \\    \\       `.",
-      "      \\)_/ |     \\    \\  . .  |",
-      "           |      )   /\\/  \\  |",
-      "           |     /   |  \\   | |",
-      "           |    /    |   \\  | |",
-      "          /   ,'      \\-'  '  |",
-      "         /  ,'         `.___.-'",
-      "        |  (                   ",
-      "         \\  `-.    ___",
-      "          `.   `--\"   `-.  ___",
-      "            `-._       _.-\"   `.",
-      "             |  ``---''  |-..__ |",
-      "              \\  |  \\   |     ``'",
-      "               \\ '   |  '",
-      "                \\|   |  |",
-      "                 |    \\ |",
-      "                 |     \\|",
-      "                _j     _j"
-    ]
-  ];
+  var horses = [f0, f1, f2, f3, f4, f5];
+  var bg = document.getElementById('ascii-bg');
+  var count = 4;
+  var instances = [];
 
-  const bg = document.getElementById('ascii-bg');
-  const count = 5;
-  const instances = [];
-
-  for (let i = 0; i < count; i++) {
-    const pre = document.createElement('pre');
-    pre.style.left = (Math.random() * window.innerWidth) + 'px';
-    pre.style.top = (Math.random() * window.innerHeight) + 'px';
-    pre.style.opacity = (0.03 + Math.random() * 0.05).toFixed(3);
+  for (var i = 0; i < count; i++) {
+    var pre = document.createElement('pre');
     bg.appendChild(pre);
     instances.push({
       el: pre,
-      x: parseFloat(pre.style.left),
-      y: parseFloat(pre.style.top),
-      speed: 0.3 + Math.random() * 0.6,
+      x: Math.random() * window.innerWidth,
+      y: 80 + Math.random() * (window.innerHeight - 300),
+      speed: 0.4 + Math.random() * 0.5,
       frame: Math.floor(Math.random() * horses.length),
       tick: 0,
-      flipRate: 8 + Math.floor(Math.random() * 6)
+      flipRate: 6 + Math.floor(Math.random() * 4)
     });
   }
 
   function animate() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    instances.forEach(inst => {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    for (var i = 0; i < instances.length; i++) {
+      var inst = instances[i];
       inst.x -= inst.speed;
-      if (inst.x < -400) {
-        inst.x = w + 50;
-        inst.y = Math.random() * (h - 200);
+      if (inst.x < -700) {
+        inst.x = w + 100 + Math.random() * 300;
+        inst.y = 80 + Math.random() * (h - 300);
       }
       inst.tick++;
       if (inst.tick % inst.flipRate === 0) {
         inst.frame = (inst.frame + 1) % horses.length;
       }
-      inst.el.style.transform = 'translate(' + inst.x + 'px,' + inst.y + 'px)';
+      inst.el.style.transform = 'translate(' + inst.x.toFixed(1) + 'px,' + inst.y.toFixed(1) + 'px)';
       inst.el.textContent = horses[inst.frame].join('\n');
-    });
+    }
     requestAnimationFrame(animate);
   }
 
-  instances.forEach(inst => {
-    inst.el.style.left = '0';
-    inst.el.style.top = '0';
-  });
   animate();
 })();
 </script>
